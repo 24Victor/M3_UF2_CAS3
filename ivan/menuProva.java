@@ -1,7 +1,6 @@
-package ivan;
 import java.util.Scanner;
 
-public class menu {
+public class menuProva {
 
     public static void main(String[] args) {
         /* Test prova menu */
