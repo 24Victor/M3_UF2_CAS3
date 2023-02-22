@@ -2,6 +2,10 @@ import java.util.Scanner;
 
 public class menuProva {
 
+    /**
+     * Fem una prova del menu
+     * @param args
+     */
     public static void main(String[] args) {
         /* Test prova menu */
         String[] prova = {"dilluns (L)", "dimarts (M)", "dimecres (X)"};
@@ -11,17 +15,20 @@ public class menuProva {
     }
 
 
-
+    /**
+     * Fem el menu on cridem funcions
+     * @param opcions: array
+     * @return: retorna resultat de llegirUnChar en la variable op
+     */
     public static char menu(String[] opcions) {
-    /* Imprimir un menu */
-    imprimirArray(opcions);
+        /* Imprimir un menu */
+        imprimirArray(opcions);
 
-    /* Guardar opcion que escull el usuari */
-    char op = llegirUnChar();
+        /* Guardar opcion que escull el usuari */
+        char op = llegirUnChar();
 
-    /* Tornar opció escoillida */
-    return op;
-
+        /* Tornar opció escoillida */
+        return op;
     }
 
     /**
@@ -35,7 +42,10 @@ public class menuProva {
     }
 
 
-    /** Llegeix una paraula del teclar i retorna el primer caracter de la paraula */
+    /**
+     *Llegeix una paraula del teclar i retorna el primer caracter de la paraula
+     * @return: retornem el primer caracter de llegirUnChar
+     */
     public static char llegirUnChar(){
         Scanner teclat = new Scanner(System.in);
         String llegida = teclat.nextLine();
@@ -44,7 +54,4 @@ public class menuProva {
 
         return caracter;
     }
-
-
-
 }
