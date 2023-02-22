@@ -7,7 +7,7 @@ public class menuProva {
         String[] prova = {"dilluns (L)", "dimarts (M)", "dimecres (X)"};
         char resultat;
         resultat = menu(prova);
-        System.out.println("debug resultat" + resultat);
+        System.out.println("debug resultat " + resultat);
     }
 
 
@@ -17,23 +17,34 @@ public class menuProva {
     imprimirArray(opcions);
 
     /* Guardar opcion que escull el usuari */
-    // char op = llegirUnChar();
+    char op = llegirUnChar();
 
     /* Tornar opció escoillida */
-    return 'x';
+    return op;
 
     }
 
-
-
+    /**
+     * Imprimir un array
+     * @param a: array a imprimir
+     */
     public static void imprimirArray(String[] a){
         for(int i = 0; i<a.length;i++){
             System.out.println(a[i]);
-        }
+        } 
+    }
+
+
+    /** Llegeix una paraula del teclar i retorna el primer caracter de la paraula */
+    public static char llegirUnChar(){
+        Scanner teclat = new Scanner(System.in);
+        String llegida = teclat.nextLine();
+        System.out.println("Debug llegida " + llegida);
+        char caracter = llegida.charAt(0);
+
+        return caracter;
     }
 
 
 
 }
-
-// Scanner sc = new Scanner(System.in);
