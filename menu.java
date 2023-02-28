@@ -70,4 +70,37 @@ public class menu {
                 System.out.println("Opció inválida");
         }
     }
+
+    private static void inserir() {
+  
+    }
+
+    private static void localitzar() {
+  
+    }
+    private static void recuperar() {
+  
+    }
+    private static void suprimir() {
+  
+    }
+    private static void suprimirDada() {
+  
+    }
+    private static void anul_lar() {
+  
+    }
+    private static void primerDarrer() {
+  
+    }
+    private static void imprimir() {
+  
+    }
+    private static void ordenar() {
+  
+    }
+
+    private static void localitzarenordenada() {
+  
+    }
 }
