@@ -91,7 +91,7 @@ public class menu {
         numElem = numElem-1;
 
         /* Condicional (si el número d'elements es == a la llargada de l'array s'imprimeix un missatge) */
-        if (numElem == surnames.length) {
+        if (numElem == myArray.length) {
             System.out.println("L'array està plena. No es pot inserir més elements.");
         }
         /* Afegir dada i moure a la dreta */
@@ -115,16 +115,16 @@ public class menu {
             
         /* Desplaça els elements cap a la dreta per a fer espai per a el nou element */
         for (int i = numElem - 1; i >= p; i--) {
-            surnames[i + 1] = surnames[i];
+            myArray[i + 1] = myArray[i];
         }
         /* Inserta el nou element a la posició especificada */
-        surnames[m] = x;
+        myArray[m] = x;
         numElem++;
 
         /* Imprimim l'array per a fer la comprovació de que tot funciona correctament */
         System.out.println("Elements restants de la llista: ");
         for (int i = 0; i < numElem; i++) {
-            System.out.println(surnames[i]);
+            System.out.println(myArray[i]);
         }
         }   
     }
@@ -161,7 +161,7 @@ public class menu {
             p = sc.nextInt();
         } 
         //Printeja el array el qual ens demana el usuari
-        System.out.println(surnames[p-1]);
+        System.out.println(myArray[p-1]);
     }
 
     private static void suprimir() {
@@ -180,7 +180,7 @@ public class menu {
 
         /* Desplacem tots els elements detràs de la posició especificada cap a l'esquerra */
         for (int i = position; i < numElem - 1; i++) {
-            surnames[i] = surnames[i + 1];
+            myArray[i] = myArray[i + 1];
         }
         /* Verifiquem que la posició ingresada sigui valida */
         while(p > position || position > numElem){
@@ -194,7 +194,7 @@ public class menu {
         /* Imprimim l'array ja actualitzada */
         System.out.println("Elements restants de la llista: ");
         for (int i = 0; i < numElem; i++) {
-            System.out.println(surnames[i]);
+            System.out.println(myArray[i]);
         }
     }
 
@@ -211,10 +211,10 @@ public class menu {
         /*Bucle per a desplaçar una posició cap a l'esquerra quan trobi una coincidencia amb x*/
         for (int i =0; i < numElem; i++){
             /*Si x equival a algun element de dins de l'array: */
-            if(x.equals(surnames[i])){
+            if(x.equals(myArray[i])){
                 /*Mourem els elements que queden detras d'aquesta posicio cap a l'esquerra, fins cercar un altra coincidencia si n'hi ha */
                 for (int j = i; j<numElem; j++){
-                    surnames[i]=surnames[i+1];
+                    myArray[i]=myArray[i+1];
                     numElem--;
                     i--;
                 }
@@ -222,7 +222,7 @@ public class menu {
         }
         /*Imprimir la llista actualitzada */
         for(int i=0; i< numElem; i++){
-            System.out.println(surnames[i]);
+            System.out.println(myArray[i]);
         }
     }
 
@@ -230,7 +230,7 @@ public class menu {
         /* Funció anul_lar */
         // Fem un bucle per a canvie el valor de les posicións a NULL
         for (int i = 0; i < numElem; i++){
-            surnames[i] = null;
+            myArray[i] = null;
         }
         // Canviem a 0 el valor de numElem
         numElem = 0;
@@ -240,7 +240,7 @@ public class menu {
         System.out.println("Podem veure que el contingut de l'array es tot NULL: ");
         // Fem el bucle per a imprimir el contigut de l'array
         for (int i = 0; i < 10; i++){
-            System.out.println(surnames[i]);
+            System.out.println(myArray[i]);
         }
     }
 
@@ -254,12 +254,12 @@ public class menu {
             int i= sc.nextInt();
             /*Si es igual a 1 ens imprimira el primer element introduit a l'array */
             if(i==1){
-                System.out.println(surnames[0]);
+                System.out.println(myArray[0]);
                 break;
             }
             /*Si es igual a 2 ens imprimira el darrer element introduit a l'array */
                 else if(i==2){
-                    System.out.println(surnames[numElem - 1]);
+                    System.out.println(myArray[numElem - 1]);
                 break;
                 }
                 /*Finalment si el numero introduit no es ni 1 ni 2 direm que no e vàlid i li demanarem un altre vegada el numero*/
@@ -277,7 +277,7 @@ public class menu {
         //bucle for per a la posició del element    
         for(int z = 0; z < numElem;z++){
             //printejar el element i la posició del array
-            System.out.println( "Element: " + surnames[z]+" és la posició "+ (z+1) );
+            System.out.println( "Element: " + myArray[z]+" és la posició "+ (z+1) );
         }
   
     }
