@@ -64,6 +64,12 @@ public class menu {
                 imprimir();
                 break;
             case 9:
+                ordenar();
+                break;
+            case 10:
+                localitzarEnOrdenada();
+                break;
+            case 11:
                 // No fa res, el bucle se trenca i se surt del programa
                 break;
             default:
@@ -100,7 +106,7 @@ public class menu {
   
     }
 
-    private static void localitzarenordenada() {
+    private static void localitzarEnOrdenada() {
   
     }
 }
