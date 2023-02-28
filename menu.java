@@ -47,7 +47,7 @@ public class menu {
                 inserir();
                 break;
             case 2:
-                localitzar(myArray);
+                localitzar();
                 break;
             case 3:
                 recuperar();
