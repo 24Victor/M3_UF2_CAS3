@@ -5,6 +5,7 @@ public class menu {
     private static Scanner sc = new Scanner(System.in);
     private static int numElem = 10;
     private static String surnames[] = new String[numElem];
+    private static int size = 0;
 
     public static void main(String[] args) {
         int opcio;
@@ -13,10 +14,11 @@ public class menu {
             mostrarMenu();
             opcio = leerOpcio();
             ejecutarOpcio(opcio);
-        } while (opcio != 9);
+        } while (opcio != 11);
 
-        System.out.println("Sortin del programa...");
+        System.out.println("Sortint del programa...");
     }
+
 
     private static void mostrarMenu() {
         System.out.println("Benvingut al menu");
@@ -64,6 +66,14 @@ public class menu {
                 break;
             case 8:
                 imprimir();
+                /*imprimir: imprimeix tots els elements de la llista del primer a l'últim amb la seva posició
+                Entrada: llista
+                ortida: impressió dels elements de l'array, amb la seva posició, per pantalla.*/
+                //bucle for per a la posició del element    
+                for(int z = 0; z < numElem;z++){
+                    //printejar el element i la posició del array
+                     System.out.println( "Element: " + surnames[z]+" és la posició "+ (z+1) );
+                }
                 break;
             case 9:
                 ordenar();
@@ -102,6 +112,9 @@ public class menu {
   
     }
     private static void imprimir() {
+        /*imprimir: imprimeix tots els elements de la llista del primer a l'últim amb la seva posició
+        Entrada: llista
+        Sortida: impressió dels elements de l'array, amb la seva posició, per pantalla.*/
   
     }
     private static void ordenar() {
