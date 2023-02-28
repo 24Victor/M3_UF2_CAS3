@@ -4,7 +4,7 @@ public class menu {
 
     private static Scanner sc = new Scanner(System.in);
     private static int numElem = 10;
-    private static String myArray[] = {"Periche ", "Marc ", "Joan ", "Eric ", "Hugo ", "Iker ", "Rafa ", "Codina ", "Medina ", "Pol"};
+    private static String myArray[] = {"Periche", "Marc", "Joan", "Eric", "Hugo", "Iker", "Rafa", "Codina", "Medina", "Pol"};
     private static int p = 0;
 
     public static void main(String[] args) {
@@ -47,7 +47,7 @@ public class menu {
                 inserir();
                 break;
             case 2:
-                localitzar();
+                localitzar(myArray);
                 break;
             case 3:
                 recuperar();
@@ -129,7 +129,7 @@ public class menu {
         }   
     }
 
-    private static void localitzar() {
+    private static void localitzar(String[] myArray) {
         //Demanem quin cognom volem buscar
         System.out.println("Introdueix un cognom a buscar ");
 
