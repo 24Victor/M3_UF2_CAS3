@@ -4,7 +4,7 @@ public class menu {
 
     private static Scanner sc = new Scanner(System.in);
     private static int numElem = 10;
-    private static String myArray[] = new String[numElem];
+    private static String myArray[] = {"Periche ", "Marc ", "Joan ", "Eric ", "Hugo ", "Iker ", "Rafa ", "Codina ", "Medina ", "Pol"};
     private static int p = 0;
 
     public static void main(String[] args) {
