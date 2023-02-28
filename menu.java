@@ -4,16 +4,10 @@ public class menu {
 
     private static Scanner sc = new Scanner(System.in);
     private static int numElem = 10;
-    private static String myArray[] = new String[numElem];
+    private static String surnames[] = new String[numElem];
     private static int p = 0;
 
     public static void main(String[] args) {
-        String[] surnames = demanarCognoms(10);
-        System.out.println("Los cognoms ingresats son:");
-        for (String cognoms : surnames) {
-            System.out.println(cognoms);
-        }
-
         int opcio;
 
         do {
@@ -26,43 +20,66 @@ public class menu {
     }
 
 
-    public static String[] demanarCognoms(int numCognoms) {
-        Scanner scanner = new Scanner(System.in);
-        String[] surnames = new String[numCognoms];
-        for (int i = 0; i < numCognoms; i++) {
-            System.out.print("Ingresa el cognom " + (i + 1) + ": ");
-            surnames[i] = scanner.nextLine();
-        }
-        scanner.close();
-        return surnames;
-    }
-
     private static void mostrarMenu() {
-        System.out.println("Benvingut al menu, Introduir un numero del 1 al 10 per a elegir una operació, i 10 per a sortir.");
+        System.out.println("Benvingut al menu");
         System.out.println("----------------------");
-        System.out.println("1. Inserir, 2. Localitzar, 3. Recuperar, 4. Suprimir, 5. SuprimirDada, 6. Anul_lar, 7. PrimerDarrer, 8. Imprimir, 9. Ordenar, 10. LocalitzarEnOrdenada, Sortir");
+        System.out.println("1. Inserir");
+        System.out.println("2. Localitzar");
+        System.out.println("3. Recuperar");
+        System.out.println("4. Suprimir");
+        System.out.println("5. SuprimirDada");
+        System.out.println("6. Anul·lar");
+        System.out.println("7. PrimerDarrer");
+        System.out.println("8. Imprimir");
+        System.out.println("9. Ordenar");
+        System.out.println("10. localitzarEnOrdenada");
+        System.out.println("11. Sortir");
+        System.out.print("Eligiu una opció: ");
     }
-    
-    private static void ejecutarOpcio(int opcio) {
-        System.out.println("Opció seleccionada: " + opcio);
-    }
-    
 
     private static int leerOpcio() {
-        int opcio = 0;
-        boolean entradaValida = false;
-        do {
-            System.out.println("Introdueix un número enter");
-            if (sc.hasNextInt()) {
-                opcio = sc.nextInt();
-                entradaValida = true;
-            } else {
-                sc.next(); // consume the non-integer input
-            }
-        } while (!entradaValida);
-        sc.nextLine(); // consume the newline character
-        return opcio;
-    }    
+        return sc.nextInt();
+    }
+
+    private static void ejecutarOpcio(int opcion) {
+        switch (opcion) {
+            case 1:
+                inserir();
+                break;
+            case 2:
+                localitzar();
+                break;
+            case 3:
+                recuperar();
+                break;
+            case 4:
+                suprimir();
+                break;
+            case 5:
+                suprimirDada();
+                break;
+            case 6:
+                anul_lar();
+                break;
+            case 7:
+                primerDarrer();
+                break;
+            case 8:
+                imprimir();
+                break;
+            case 9:
+                ordenar();
+                break;
+            case 10:
+                localitzarEnOrdenada();
+                break;
+            case 11:
+                // No fa res, el bucle se trenca i se surt del programa
+                break;
+            default:
+                System.out.println("Opció inválida");
+        }
+    }
 
     private static void inserir() {
         /* inserir : insereix un element, x, en una posició, p, de la llista, 
@@ -74,7 +91,7 @@ public class menu {
         numElem = numElem-1;
 
         /* Condicional (si el número d'elements es == a la llargada de l'array s'imprimeix un missatge) */
-        if (numElem == myArray.length) {
+        if (numElem == surnames.length) {
             System.out.println("L'array està plena. No es pot inserir més elements.");
         }
         /* Afegir dada i moure a la dreta */
@@ -98,21 +115,26 @@ public class menu {
             
         /* Desplaça els elements cap a la dreta per a fer espai per a el nou element */
         for (int i = numElem - 1; i >= p; i--) {
-            myArray[i + 1] = myArray[i];
+            surnames[i + 1] = surnames[i];
         }
         /* Inserta el nou element a la posició especificada */
-        myArray[m] = x;
+        surnames[m] = x;
         numElem++;
 
         /* Imprimim l'array per a fer la comprovació de que tot funciona correctament */
         System.out.println("Elements restants de la llista: ");
         for (int i = 0; i < numElem; i++) {
-            System.out.println(myArray[i]);
+            System.out.println(surnames[i]);
         }
         }   
     }
 
     private static void localitzar() {
+        /* localitza la (primera) posició p en la que es troba un element donat x.
+        Entrada: element x, llista
+        Sortida: posició p*/
+
+        /* Funció localitzar */
         //Demanem quin cognom volem buscar
         System.out.println("Introdueix un cognom a buscar ");
 
@@ -123,11 +145,10 @@ public class menu {
         //Fem un bucle que fagi tot el recorregut de l'array
         for (int i = 0; i < numElem; i++){
             //Si el cognom buscat coincideix amb algun cognom de l'array 
-            if(buscat.equals(myArray[i])){
+            if(buscat.equals(surnames[i])){
                 //Imprimim el cognom i la posició en la que es troba
-                System.out.println("El cognom " + myArray[i] + " està en la posició " + i);
+                System.out.println("El cognom " + surnames[i] + " està en la posició " + i);
             }
-          
         }
     }
 
@@ -144,7 +165,7 @@ public class menu {
             p = sc.nextInt();
         } 
         //Printeja el array el qual ens demana el usuari
-        System.out.println(myArray[p-1]);
+        System.out.println(surnames[p-1]);
     }
 
     private static void suprimir() {
@@ -163,7 +184,7 @@ public class menu {
 
         /* Desplacem tots els elements detràs de la posició especificada cap a l'esquerra */
         for (int i = position; i < numElem - 1; i++) {
-            myArray[i] = myArray[i + 1];
+            surnames[i] = surnames[i + 1];
         }
         /* Verifiquem que la posició ingresada sigui valida */
         while(p > position || position > numElem){
@@ -177,7 +198,7 @@ public class menu {
         /* Imprimim l'array ja actualitzada */
         System.out.println("Elements restants de la llista: ");
         for (int i = 0; i < numElem; i++) {
-            System.out.println(myArray[i]);
+            System.out.println(surnames[i]);
         }
     }
 
@@ -194,10 +215,10 @@ public class menu {
         /*Bucle per a desplaçar una posició cap a l'esquerra quan trobi una coincidencia amb x*/
         for (int i =0; i < numElem; i++){
             /*Si x equival a algun element de dins de l'array: */
-            if(x.equals(myArray[i])){
+            if(x.equals(surnames[i])){
                 /*Mourem els elements que queden detras d'aquesta posicio cap a l'esquerra, fins cercar un altra coincidencia si n'hi ha */
                 for (int j = i; j<numElem; j++){
-                    myArray[i]=myArray[i+1];
+                    surnames[i]=surnames[i+1];
                     numElem--;
                     i--;
                 }
@@ -205,7 +226,7 @@ public class menu {
         }
         /*Imprimir la llista actualitzada */
         for(int i=0; i< numElem; i++){
-            System.out.println(myArray[i]);
+            System.out.println(surnames[i]);
         }
     }
 
@@ -213,7 +234,7 @@ public class menu {
         /* Funció anul_lar */
         // Fem un bucle per a canvie el valor de les posicións a NULL
         for (int i = 0; i < numElem; i++){
-            myArray[i] = null;
+            surnames[i] = null;
         }
         // Canviem a 0 el valor de numElem
         numElem = 0;
@@ -223,7 +244,7 @@ public class menu {
         System.out.println("Podem veure que el contingut de l'array es tot NULL: ");
         // Fem el bucle per a imprimir el contigut de l'array
         for (int i = 0; i < 10; i++){
-            System.out.println(myArray[i]);
+            System.out.println(surnames[i]);
         }
     }
 
@@ -237,12 +258,12 @@ public class menu {
             int i= sc.nextInt();
             /*Si es igual a 1 ens imprimira el primer element introduit a l'array */
             if(i==1){
-                System.out.println(myArray[0]);
+                System.out.println(surnames[0]);
                 break;
             }
             /*Si es igual a 2 ens imprimira el darrer element introduit a l'array */
                 else if(i==2){
-                    System.out.println(myArray[numElem - 1]);
+                    System.out.println(surnames[numElem - 1]);
                 break;
                 }
                 /*Finalment si el numero introduit no es ni 1 ni 2 direm que no e vàlid i li demanarem un altre vegada el numero*/
@@ -260,7 +281,7 @@ public class menu {
         //bucle for per a la posició del element    
         for(int z = 0; z < numElem;z++){
             //printejar el element i la posició del array
-            System.out.println( "Element: " + myArray[z]+" és la posició "+ (z+1) );
+            System.out.println( "Element: " + surnames[z]+" és la posició "+ (z+1) );
         }
   
     }
