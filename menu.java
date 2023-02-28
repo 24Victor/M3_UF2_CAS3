@@ -129,12 +129,7 @@ public class menu {
         }   
     }
 
-    private static void localitzar() {
-        /* localitza la (primera) posició p en la que es troba un element donat x.
-        Entrada: element x, llista
-        Sortida: posició p*/
-
-        /* Funció localitzar */
+    private static void localitzar(String[] myArray) {
         //Demanem quin cognom volem buscar
         System.out.println("Introdueix un cognom a buscar ");
 
@@ -145,10 +140,11 @@ public class menu {
         //Fem un bucle que fagi tot el recorregut de l'array
         for (int i = 0; i < numElem; i++){
             //Si el cognom buscat coincideix amb algun cognom de l'array 
-            if(buscat.equals(surnames[i])){
+            if(buscat.equals(myArray[i])){
                 //Imprimim el cognom i la posició en la que es troba
-                System.out.println("El cognom " + surnames[i] + " està en la posició " + i);
+                System.out.println("El cognom " + myArray[i] + " està en la posició " + i);
             }
+          
         }
     }
 

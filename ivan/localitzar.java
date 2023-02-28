@@ -17,6 +17,7 @@ public class localitzar {
         }
 
 /* Funció localitzar */
+
     //Demanem quin cognom volem buscar
         System.out.println("Introdueix un cognom a buscar ");
 
