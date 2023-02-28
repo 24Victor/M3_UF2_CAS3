@@ -55,7 +55,7 @@ public class menu {
                 suprimirDada();
                 break;
             case 6:
-                anullar();
+                anul_lar();
                 break;
             case 7:
                 primerDarrer();
