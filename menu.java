@@ -29,7 +29,9 @@ public class menu {
         System.out.println("6. Anul·lar");
         System.out.println("7. PrimerDarrer");
         System.out.println("8. Imprimir");
-        System.out.println("9. Sortir");
+        System.out.println("9. Ordenar");
+        System.out.println("10. localitzarEnOrdenada");
+        System.out.println("11. Sortir");
         System.out.print("Eligiu una opció: ");
     }
 
