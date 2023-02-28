@@ -66,14 +66,6 @@ public class menu {
                 break;
             case 8:
                 imprimir();
-                /*imprimir: imprimeix tots els elements de la llista del primer a l'últim amb la seva posició
-                Entrada: llista
-                ortida: impressió dels elements de l'array, amb la seva posició, per pantalla.*/
-                //bucle for per a la posició del element    
-                for(int z = 0; z < numElem;z++){
-                    //printejar el element i la posició del array
-                     System.out.println( "Element: " + surnames[z]+" és la posició "+ (z+1) );
-                }
                 break;
             case 9:
                 ordenar();
@@ -115,6 +107,11 @@ public class menu {
         /*imprimir: imprimeix tots els elements de la llista del primer a l'últim amb la seva posició
         Entrada: llista
         Sortida: impressió dels elements de l'array, amb la seva posició, per pantalla.*/
+        //bucle for per a la posició del element    
+        for(int z = 0; z < numElem;z++){
+            //printejar el element i la posició del array
+            System.out.println( "Element: " + surnames[z]+" és la posició "+ (z+1) );
+        }
   
     }
     private static void ordenar() {
