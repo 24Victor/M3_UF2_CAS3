@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Menu {
+public class menu {
 
     private static Scanner sc = new Scanner(System.in);
     private static int numElem = 10;
@@ -15,11 +15,11 @@ public class Menu {
             ejecutarOpcion(opcion);
         } while (opcion != 9);
 
-        System.out.println("Saliendo del programa...");
+        System.out.println("Sortin del programa...");
     }
 
     private static void mostrarMenu() {
-        System.out.println("Bienvenido al programa");
+        System.out.println("Benvingut al menu");
         System.out.println("----------------------");
         System.out.println("1. Inserir");
         System.out.println("2. Localitzar");
@@ -30,7 +30,7 @@ public class Menu {
         System.out.println("7. PrimerDarrer");
         System.out.println("8. Imprimir");
         System.out.println("9. Sortir");
-        System.out.print("Escoge una opción: ");
+        System.out.print("Eligiu una opció: ");
     }
 
     private static int leerOpcion() {
@@ -64,9 +64,10 @@ public class Menu {
                 imprimir();
                 break;
             case 9:
-                // No hace nada, el bucle se rompe y se sale del programa
+                // No fa res, el bucle se trenca i se surt del programa
                 break;
             default:
-                System.out.println("Opción inválida");
+                System.out.println("Opció inválida");
         }
     }
+}
