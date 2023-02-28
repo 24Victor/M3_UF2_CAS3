@@ -20,7 +20,7 @@ public class menu {
             mostrarMenu();
             opcio = leerOpcio();
             ejecutarOpcio(opcio);
-        } while (opcio != 10);
+        } while (opcio != 11);
 
         System.out.println("Sortint del programa...");
     }
