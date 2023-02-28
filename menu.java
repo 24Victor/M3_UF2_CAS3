@@ -129,7 +129,7 @@ public class menu {
         }   
     }
 
-    private static void localitzar(String[] myArray) {
+    private static void localitzar() {
         //Demanem quin cognom volem buscar
         System.out.println("Introdueix un cognom a buscar ");
 
