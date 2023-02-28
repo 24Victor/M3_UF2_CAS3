@@ -7,13 +7,13 @@ public class menu {
     private static String surnames[] = new String[numElem];
 
     public static void main(String[] args) {
-        int opcion;
+        int opcio;
 
         do {
             mostrarMenu();
-            opcion = leerOpcion();
-            ejecutarOpcion(opcion);
-        } while (opcion != 9);
+            opcio = leerOpcio();
+            ejecutarOpcio(opcio);
+        } while (opcio != 9);
 
         System.out.println("Sortin del programa...");
     }
@@ -33,11 +33,11 @@ public class menu {
         System.out.print("Eligiu una opció: ");
     }
 
-    private static int leerOpcion() {
+    private static int leerOpcio() {
         return sc.nextInt();
     }
 
-    private static void ejecutarOpcion(int opcion) {
+    private static void ejecutarOpcio(int opcion) {
         switch (opcion) {
             case 1:
                 inserir();
