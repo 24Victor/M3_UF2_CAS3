@@ -8,11 +8,6 @@ public class menu {
         int p = 0;
         int opcio;
 
-        for (int i = 0; i < 10; i++) {
-            System.out.print("Introdueix un cognom: ");
-            myArray[i] = sc.nextLine();
-        }
-
         do {
             mostrarMenu();
             opcio = llegirOpcio();
@@ -23,16 +18,17 @@ public class menu {
     }
 
     public static String[] demanarCognoms(String msg){
-        //Demanem al usuari que introdueixi un cognom
-        System.out.println(msg + "Introdueix 10 noms:");
-        sc.next();
-        for(int i = 0; i < numElem; i++){
+        String[] myArray = new String[10];
+        System.out.println(msg + "Introdueix 10 cognoms:");
+        for(int i = 0; i < 10; i++){
             myArray[i] = sc.nextLine();
-           if(i<9){
+            if(i<9){
                 System.out.println("Seguent: ");
             }
         }
+        return myArray;
     }
+    
     
     private static void mostrarMenu() {
         System.out.println("Benvingut al menu");
