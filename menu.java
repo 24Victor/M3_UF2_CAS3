@@ -8,8 +8,9 @@ public class menu {
         int p = 0;
         int opcio;
 
-        demanarCognoms(){
-            return myArray;
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Introdueix un cognom: ");
+            myArray[i] = sc.nextLine();
         }
 
         do {
