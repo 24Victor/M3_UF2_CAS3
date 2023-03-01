@@ -3,15 +3,6 @@ import java.util.Scanner;
 public class menu {
 
     private static Scanner sc = new Scanner(System.in);
-    private static int numElem = 10;
-    private static String myArray[] = new String[10];
-    private static int p = 0;
-    
-    demanarCognoms(myArray){
-        
-        
-    }
-
     private static String[] demanarCognoms(String msg){
         //Demanem al usuari que introdueixi un cognom
         System.out.println(msg + "Introdueix 10 noms:");
@@ -26,6 +17,9 @@ public class menu {
     }
 
     public static void main(String[] args) {
+        int numElem = 10;
+        String myArray[] = new String[10];
+        int p = 0;
         int opcio;
 
         do {
@@ -36,7 +30,6 @@ public class menu {
 
         System.out.println("Sortint del programa...");
     }
-
 
     private static void mostrarMenu() {
         System.out.println("Benvingut al menu");
