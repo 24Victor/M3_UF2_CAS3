@@ -44,28 +44,28 @@ public class menu {
     private static void ejecutarOpcio(int opcion) {
         switch (opcion) {
             case 1:
-                inserir();
+                inserir(myArray);
                 break;
             case 2:
                 localitzar(myArray);
                 break;
             case 3:
-                recuperar();
+                recuperar(myArray);
                 break;
             case 4:
-                suprimir();
+                suprimir(myArray);
                 break;
             case 5:
-                suprimirDada();
+                suprimirDada(myArray);
                 break;
             case 6:
-                anul_lar();
+                anul_lar(myArray);
                 break;
             case 7:
-                primerDarrer();
+                primerDarrer(myArray);
                 break;
             case 8:
-                imprimir();
+                imprimir(myArray);
                 break;
             case 9:
                 ordenar();
@@ -81,7 +81,7 @@ public class menu {
         }
     }
 
-    private static void inserir() {
+    private static void inserir(String[] myArray) {
         /* inserir : insereix un element, x, en una posició, p, de la llista, 
         passant els elements de la posició p i següents a la posició immediatament posterior. 
         Entrada: element x, posició p, llista 
@@ -148,7 +148,7 @@ public class menu {
         }
     }
 
-    private static void recuperar() {
+    private static void recuperar(String[] myArray) {
         /*recuperar: troba l'element x que està a la posició p
         Entrada: posició p, llista
         Sortida: element x*/
@@ -164,7 +164,7 @@ public class menu {
         System.out.println(myArray[p-1]);
     }
 
-    private static void suprimir() {
+    private static void suprimir(String[] myArray) {
         /* suprimir: elimina de la llista l'element de la posició p
             Entrada: posició p, llista
             Sortida: llista*/
@@ -198,7 +198,7 @@ public class menu {
         }
     }
 
-    private static void suprimirDada() {
+    private static void suprimirDada(String[] myArray) {
         /*elimina de la llista qualsevol ocurrència de l'element x 
         Entrada: element x, llista
         Sortida: llista*/
@@ -226,7 +226,7 @@ public class menu {
         }
     }
 
-    private static void anul_lar() {
+    private static void anul_lar(String[] myArray) {
         /* Funció anul_lar */
         // Fem un bucle per a canvie el valor de les posicións a NULL
         for (int i = 0; i < numElem; i++){
@@ -244,7 +244,7 @@ public class menu {
         }
     }
 
-    private static void primerDarrer() {
+    private static void primerDarrer(String[] myArray) {
         /*proporciona el primer o el darrer element de la llista
         Entrada: llista, opció (primer o darrer)
         Sortida: element x*/
@@ -270,7 +270,7 @@ public class menu {
         }
     }
     
-    private static void imprimir() {
+    private static void imprimir(String[] myArray) {
         /*imprimir: imprimeix tots els elements de la llista del primer a l'últim amb la seva posició
         Entrada: llista
         Sortida: impressió dels elements de l'array, amb la seva posició, per pantalla.*/
