@@ -7,18 +7,21 @@ public class menu {
     private static String myArray[] = new String[10];
     private static int p = 0;
     
-    
     private static void demanarCognoms(){
-        //Demanem al usuari que introdueixi un nom
+        //Demanem al usuari que introdueixi un cognom
         System.out.println("Introdueix 10 noms:");
+        
         for(int i = 0; i < numElem; i++){
-             myArray[i] = sc.nextLine();
-             if(i<9){
+            myArray[i] = sc.nextLine();
+           if(i<9){
                 System.out.println("Seguent: ");
-             }
+            }
         }
     }
 
+    private static String[] obtenirNoms(){
+        return myArray;
+    }
     
     public static void main(String[] args) {
         int opcio;
@@ -31,11 +34,6 @@ public class menu {
 
         System.out.println("Sortint del programa...");
     }
-
-
-    private static String demanarCognoms(){
-        return myArray;
-        }
 
     private static void mostrarMenu() {
         System.out.println("Benvingut al menu");
