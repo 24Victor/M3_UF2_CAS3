@@ -4,9 +4,22 @@ public class menu {
 
     private static Scanner sc = new Scanner(System.in);
     private static int numElem = 10;
-    private static String myArray[] = {"Periche", "Marc", "Joan", "Eric", "Hugo", "Iker", "Rafa", "Codina", "Medina", "Pol"};
+    private static String myArray[] = new String[10];
     private static int p = 0;
+    
+    
+    private static void demanarCognoms(){
+        //Demanem al usuari que introdueixi un nom
+        System.out.println("Introdueix 10 noms:");
+        for(int i = 0; i < numElem; i++){
+             myArray[i] = sc.nextLine();
+             if(i<9){
+                System.out.println("Seguent: ");
+             }
+        }
+    }
 
+    
     public static void main(String[] args) {
         int opcio;
 
@@ -19,6 +32,10 @@ public class menu {
         System.out.println("Sortint del programa...");
     }
 
+
+    private static String demanarCognoms(){
+        return myArray;
+        }
 
     private static void mostrarMenu() {
         System.out.println("Benvingut al menu");
