@@ -7,9 +7,9 @@ public class menu {
     private static String myArray[] = new String[10];
     private static int p = 0;
     
-    private static void demanarCognoms(){
+    private static String[] demanarCognoms(String msg){
         //Demanem al usuari que introdueixi un cognom
-        System.out.println("Introdueix 10 noms:");
+        System.out.println(msg + "Introdueix 10 noms:");
         sc.next();
         for(int i = 0; i < numElem; i++){
             myArray[i] = sc.nextLine();
@@ -17,9 +17,6 @@ public class menu {
                 System.out.println("Seguent: ");
             }
         }
-    }
-
-    private static String[] obtenirNoms(){
         return myArray;
     }
     
