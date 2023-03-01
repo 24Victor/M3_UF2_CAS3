@@ -2,25 +2,16 @@ import java.util.Scanner;
 
 public class menu {
 
-    private static Scanner sc = new Scanner(System.in);
-    private static String[] demanarCognoms(String msg){
-        //Demanem al usuari que introdueixi un cognom
-        System.out.println(msg + "Introdueix 10 noms:");
-        sc.next();
-        for(int i = 0; i < numElem; i++){
-            myArray[i] = sc.nextLine();
-           if(i<9){
-                System.out.println("Seguent: ");
-            }
-        }
-        return myArray;
-    }
-
+    public static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         int numElem = 10;
         String myArray[] = new String[10];
         int p = 0;
         int opcio;
+
+        demanarCognoms(){
+            return myArray;
+        }
 
         do {
             mostrarMenu();
@@ -31,6 +22,18 @@ public class menu {
         System.out.println("Sortint del programa...");
     }
 
+    public static String[] demanarCognoms(String msg){
+        //Demanem al usuari que introdueixi un cognom
+        System.out.println(msg + "Introdueix 10 noms:");
+        sc.next();
+        for(int i = 0; i < numElem; i++){
+            myArray[i] = sc.nextLine();
+           if(i<9){
+                System.out.println("Seguent: ");
+            }
+        }
+    }
+    
     private static void mostrarMenu() {
         System.out.println("Benvingut al menu");
         System.out.println("----------------------");
@@ -292,6 +295,7 @@ public class menu {
         }
   
     }
+    
     private static void ordenar() {
   
     }
