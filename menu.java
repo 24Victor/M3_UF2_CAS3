@@ -10,7 +10,7 @@ public class menu {
     private static void demanarCognoms(){
         //Demanem al usuari que introdueixi un cognom
         System.out.println("Introdueix 10 noms:");
-        
+        sc.next();
         for(int i = 0; i < numElem; i++){
             myArray[i] = sc.nextLine();
            if(i<9){
