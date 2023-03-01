@@ -12,8 +12,8 @@ public class menu {
 
         do {
             mostrarMenu();
-            opcio = leerOpcio();
-            ejecutarOpcio(opcio);
+            opcio = llegirOpcio();
+            executarOpcio(opcio);
         } while (opcio != 11);
 
         System.out.println("Sortint del programa...");
@@ -37,12 +37,12 @@ public class menu {
         System.out.print("Eligiu una opció: ");
     }
 
-    private static int leerOpcio() {
+    private static int llegirOpcio() {
         return sc.nextInt();
     }
 
-    private static void ejecutarOpcio(int opcion) {
-        switch (opcion) {
+    private static void executarOpcio(int opcio) {
+        switch (opcio) {
             case 1:
                 inserir(myArray);
                 break;
