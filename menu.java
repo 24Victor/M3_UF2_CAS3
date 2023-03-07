@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class menu {
     public static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
         int numElem = 10;
         String myArray[] = new String[10];
@@ -11,7 +12,7 @@ public class menu {
         do {
             mostrarMenu();
             opcio = llegirOpcio();
-            executarOpcio(opcio);
+            executarOpcio(opcio, myArray, numElem, p);
         } while (opcio != 11);
 
         System.out.println("Sortint del programa...");
@@ -48,34 +49,36 @@ public class menu {
     }
 
     private static int llegirOpcio() {
-        return sc.nextInt();
+        int opcio = sc.nextInt();
+        sc.nextLine();  // Leer el salto de línea después del entero
+        return opcio;
     }
-
-    private static void executarOpcio(int opcio) {
+    
+    private static void executarOpcio(int opcio, String[] myArray, int numElem, int p) {
         switch (opcio) {
             case 1:
-                inserir(myArray);
+                inserir(myArray, numElem, p);
                 break;
             case 2:
-                localitzar(myArray);
+                localitzar(myArray, numElem);
                 break;
             case 3:
-                recuperar(myArray);
+                recuperar(myArray, numElem, p);
                 break;
             case 4:
-                suprimir(myArray);
+                suprimir(myArray, numElem, p);
                 break;
             case 5:
-                suprimirDada(myArray);
+                suprimirDada(myArray, numElem);
                 break;
             case 6:
-                anul_lar(myArray);
+                anul_lar(myArray, numElem);
                 break;
             case 7:
-                primerDarrer(myArray);
+                primerDarrer(myArray, numElem);
                 break;
             case 8:
-                imprimir(myArray);
+                imprimir(myArray, numElem);
                 break;
             case 9:
                 ordenar();
