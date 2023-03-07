@@ -50,7 +50,7 @@ public class menu {
 
     private static int llegirOpcio() {
         int opcio = sc.nextInt();
-        sc.nextLine();  // Leer el salto de línea después del entero
+        sc.nextLine();  
         return opcio;
     }
 
