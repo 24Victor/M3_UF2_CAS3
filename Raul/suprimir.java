@@ -1,8 +1,11 @@
 package Raul;
 
+import java.util.Scanner;
 
 public class suprimir {
-    
+
+    private static Scanner sc = new Scanner(System.in);
+    private static int numElem = 10;    
     private static void suprimir(String[] myArray) {
         /* suprimir: elimina de la llista l'element de la posició p
             Entrada: posició p, llista
