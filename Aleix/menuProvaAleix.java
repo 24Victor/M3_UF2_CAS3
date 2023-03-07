@@ -17,10 +17,6 @@ public class menuProvaAleix {
         /* Array a mig omplir */
         String[] myArray = {"dilluns", "dimarts", "","",""};
 
-
-        System.out.print("Buscar element posicio:");
-        
-
         /*Scanner sc1 = new Scanner(System.in);
         System.out.print("escollir Llista:");
         String llista = sc.nextLine(); */
