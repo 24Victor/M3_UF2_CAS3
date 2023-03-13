@@ -143,22 +143,36 @@ public class menu {
     }
 
     private static void localitzar(String[] myArray, int numElem) {
-        //Demanem quin cognom volem buscar
-        System.out.println("Introdueix un cognom a buscar ");
+       // Demanar al usuari que introueixi el cognom
+       String cognomBuscat = llegirCognom("Introdueix el cognom que vols consultar");
 
-        //Li posem buscat al cognom que anem a buscar
-        String buscat = "";
-        buscat = sc.next();
+       // Buscar el cognom i mostrar la posició si és troba
+       int posicio = localitzarCognom(myArray, cognomBuscat, numElem);
 
-        //Fem un bucle que fagi tot el recorregut de l'array
-        for (int i = 0; i < numElem; i++){
-            //Si el cognom buscat coincideix amb algun cognom de l'array 
-            if(buscat.equals(myArray[i])){
-                //Imprimim el cognom i la posició en la que es troba
-                System.out.println("El cognom " + myArray[i] + " està en la posició " + i);
+       if (posicio == -1) {
+       System.out.println("El cognom " + cognomBuscat + " no ha estat trobat.");
+       } else {
+       System.out.println("El cognom " + cognomBuscat + " està en la posició " + posicio);
+       }
+
+    }
+    
+    public static String llegirCognom(String missatge) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println(missatge); 
+        String cognom = sc.nextLine();
+        return cognom;
+    }
+    
+    public static int localitzarCognom(String[] myArray, String cognom, int numElem) {
+        int posicio = -1;
+        for (int i = 0; i < numElem; i++) {
+            if (cognom.equals(myArray[i])) {
+                posicio = i;
+                break;
             }
-          
         }
+        return posicio;
     }
 
     private static void recuperar(String[] myArray, int numElem, int p) {
