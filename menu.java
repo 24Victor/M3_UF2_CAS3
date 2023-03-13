@@ -84,7 +84,7 @@ public class menu {
                 ordenar();
                 break;
             case 10:
-                localitzarEnOrdenada();
+                localitzarEnOrdenada(myArray);
                 break;
             case 11:
                 // No fa res, el bucle se trenca i se surt del programa
@@ -328,7 +328,28 @@ public class menu {
   
     }
 
-    private static void localitzarEnOrdenada() {
-  
+    private static void localitzarEnOrdenada(String[]myArray) {
+
+        System.out.print("Introdueix el element a buscar: ");
+        String element = sc.next();
+
+        int p;
+        p = recuperarElement(element, myArray );
+        System.out.println("El element se troba en la posició" + " " + p);
+        }
+      /*localitza la primera posició p en la que es troba un element x. (Usar l’algorisme de cerca binària)
+        Entrada: llista ordenada
+        Sortida: posició p*/
+
+    public static int recuperarElement (String ele, String[] llista) {
+        int p = -1 ;
+
+        for (int i = 0; i < llista.length; i++) {
+            if (llista[i] == ele) {
+                p = i;
+                break;
+            }
+        }
+        return p;
     }
 }
