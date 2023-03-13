@@ -238,6 +238,56 @@ public class menu {
         Entrada: element x, llista
         Sortida: llista*/
 
+        /*Introduir cognom que vol eliminar */
+        System.out.println("Introdueix el cognom que vols eliminar");
+        String x = "";
+        x=sc.next();
+
+        /*Bucle per a desplaçar una posició cap a l'esquerra quan trobi una coincidencia amb x*/
+        for (int i =0; i < numElem; i++){
+            /*Si x equival a algun element de dins de l'array: */
+            if(x.equals(myArray[i])){
+                /*Mourem els elements que queden detras d'aquesta posicio cap a l'esquerra, fins cercar un altra coincidencia si n'hi ha */
+                for (int j = i; j<numElem; j++){
+                    myArray[i]=myArray[i+1];
+                    numElem--;
+                    i--;
+                }
+            }
+        }
+        /*Imprimir la llista actualitzada */
+        for(int i=0; i< numElem; i++){
+            System.out.println(myArray[i]);
+        }
+    }
+
+    private static void anul_lar(String[] myArray, int numElem) {
+        /* Funció anul_lar */
+        // Fem un bucle per a canvie el valor de les posicións a NULL
+        for (int i = 0; i < numElem; i++){
+            myArray[i] = null;
+        }
+        // Canviem a 0 el valor de numElem
+        numElem = 0;
+
+        // Comprovem que l'array està buit imprimint-lo en pantalla
+        System.out.println("L'array està buit ");
+        System.out.println("Podem veure que el contingut de l'array es tot NULL: ");
+        imprimirAnul(myArray);
+
+    }
+    private static void imprimirAnul(String[] myArray) {
+        // Fem el bucle per a imprimir el contigut de l'array
+        for (int i = 0; i < 10; i++){
+            System.out.println(myArray[i]);
+        }
+    }
+
+    private static void primerDarrer(String[] myArray, int numElem) {
+        /*proporciona el primer o el darrer element de la llista
+        Entrada: llista, opció (primer o darrer)
+        Sortida: element x*/
+
         // Imprimir el array actual
         System.out.println("Array actual:");
         imprimir(myArray);
@@ -297,31 +347,6 @@ public class menu {
         return newArray;
     }
 
-    private static void primerDarrer(String[] myArray, int numElem) {
-        /*proporciona el primer o el darrer element de la llista
-        Entrada: llista, opció (primer o darrer)
-        Sortida: element x*/
-
-        while(true){
-            System.out.println("Introdueix 1 si vols veure el primer o 2 si vols veure el darrer");
-            int i= sc.nextInt();
-            /*Si es igual a 1 ens imprimira el primer element introduit a l'array */
-            if(i==1){
-                System.out.println(myArray[0]);
-                break;
-            }
-            /*Si es igual a 2 ens imprimira el darrer element introduit a l'array */
-                else if(i==2){
-                    System.out.println(myArray[numElem - 1]);
-                break;
-                }
-                /*Finalment si el numero introduit no es ni 1 ni 2 direm que no e vàlid i li demanarem un altre vegada el numero*/
-                else{
-                    System.out.println("El numero introduit no esta a la llista torna a introduir un numero");
-                    break; 
-                }     
-        }
-    }
     
     private static void imprimir(String[] myArray, int numElem) {
         imprimi(myArray);
