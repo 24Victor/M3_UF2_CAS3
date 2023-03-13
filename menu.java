@@ -262,48 +262,48 @@ public class menu {
     }
 
     private static void anul_lar(String[] myArray, int numElem) {
-    // Imprimir el array actual
-    System.out.println("Array actual:");
-    imprimir(myArray);
-
-    // Demanar al usuari que introdueix el element que vol eliminar
-    System.out.println("Introdueix l'element que vols eliminar:");
-    String element = sc.nextLine();
-
-    // Buscar la posició del element
-    int posicio = -1;
-    for (int i = 0; i < myArray.length; i++) {
-        if (myArray[i].equals(element)) {
-            posicio = i;
-            break;
-        }
-    }
-
-    // Si el element se troba en el array eliminarlo
-    if (posicio != -1) {
-        for (int i = posicio; i < myArray.length - 1; i++) {
-            myArray[i] = myArray[i + 1];
-        }
-        myArray[myArray.length - 1] = null;
-        myArray = ajustarArray(myArray);
-        System.out.println("Element eliminat.");
-    } else {
-        System.out.println("L'element no es troba en el array.");
-    }
-
-    // Imprimir el array actualizat
-    System.out.println("Array actualitzat:");
-    imprimir(myArray);
-    }
+        // Imprimir el array actual
+        System.out.println("Array actual:");
+        imprimir(myArray);
     
-    private static void imprimirAnul(String[] myArray) {
-        // Fem el bucle per a imprimir el contigut de l'array
-        for (int i = 0; i < 10; i++){
-            System.out.println(myArray[i]);
+        // Demanar al usuari que introdueix el element que vol eliminar
+        System.out.println("Introdueix l'element que vols eliminar:");
+        String element = sc.nextLine();
+    
+        // Buscar la posició del element
+        int posicio = -1;
+        for (int i = 0; i < myArray.length; i++) {
+            if (myArray[i].equals(element)) {
+                posicio = i;
+                break;
+            }
         }
-    }
-
-    private static void primerDarrer(String[] myArray, int numElem) {
+    
+        // Si el element se troba en el array eliminarlo
+        if (posicio != -1) {
+            for (int i = posicio; i < myArray.length - 1; i++) {
+                myArray[i] = myArray[i + 1];
+            }
+            myArray[myArray.length - 1] = null;
+            myArray = ajustarArray(myArray);
+            System.out.println("Element eliminat.");
+        } else {
+            System.out.println("L'element no es troba en el array.");
+        }
+    
+        // Imprimir el array actualizat
+        System.out.println("Array actualitzat:");
+        imprimir(myArray);
+        }
+        
+        private static void imprimirAnul(String[] myArray) {
+            // Fem el bucle per a imprimir el contigut de l'array
+            for (int i = 0; i < 10; i++){
+                System.out.println(myArray[i]);
+            }
+        }
+    
+        private static void primerDarrer(String[] myArray, int numElem) {
         /*proporciona el primer o el darrer element de la llista
         Entrada: llista, opció (primer o darrer)
         Sortida: element x*/
