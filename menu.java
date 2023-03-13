@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class menu {
     public static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
         int numElem = 10;
         String myArray[] = new String[10];
@@ -11,7 +12,7 @@ public class menu {
         do {
             mostrarMenu();
             opcio = llegirOpcio();
-            executarOpcio(opcio);
+            executarOpcio(opcio, myArray, numElem, p);
         } while (opcio != 11);
 
         System.out.println("Sortint del programa...");
@@ -48,34 +49,36 @@ public class menu {
     }
 
     private static int llegirOpcio() {
-        return sc.nextInt();
+        int opcio = sc.nextInt();
+        sc.nextLine();  
+        return opcio;
     }
 
-    private static void executarOpcio(int opcio) {
+    private static void executarOpcio(int opcio, String[] myArray, int numElem, int p) {
         switch (opcio) {
             case 1:
-                inserir(myArray);
+                inserir(myArray, numElem, p);
                 break;
             case 2:
-                localitzar(myArray);
+                localitzar(myArray, numElem);
                 break;
             case 3:
-                recuperar(myArray);
+                recuperar(myArray, numElem, p);
                 break;
             case 4:
-                suprimir(myArray);
+                suprimir(myArray, numElem, p);
                 break;
             case 5:
-                suprimirDada(myArray);
+                suprimirDada(myArray, numElem);
                 break;
             case 6:
-                anul_lar(myArray);
+                anul_lar(myArray, numElem);
                 break;
             case 7:
-                primerDarrer(myArray);
+                primerDarrer(myArray, numElem);
                 break;
             case 8:
-                imprimir(myArray);
+                imprimir(myArray, numElem);
                 break;
             case 9:
                 ordenar();
@@ -162,16 +165,24 @@ public class menu {
         /*recuperar: troba l'element x que està a la posició p
         Entrada: posició p, llista
         Sortida: element x*/
-        System.out.println("Introdueix un numero del 1 al 10");
-            p = sc.nextInt();
+        int posicio;
+        posicio = llegirEnter ("Introdueix la posició que vols consultar");
 
-        //demana al usuari que introduixque un numero del 1 al 10
-        while( p < 0  || p > numElem ){
-            System.out.println("Error, Tornar a introduir un numero del 1 al 10");
-            p = sc.nextInt();
-        } 
-        //Printeja el array el qual ens demana el usuari
-        System.out.println(myArray[p-1]);
+        String prova;
+        prova = recuperar(posicio, myArray );
+        System.out.println(prova);
+    }
+
+    public static String recuperar ( int p, String[] llista) {
+        return llista[p];
+    }
+
+    /*Demanar enter al usuari i el torna */
+    public static int llegirEnter (String msg){
+        System.out.println(msg);
+        int enter = sc.nextInt();
+        return enter;
+
     }
 
     private static void suprimir(String[] myArray, int numElem, int p) {
