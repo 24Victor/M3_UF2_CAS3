@@ -273,6 +273,10 @@ public class menu {
         // Comprovem que l'array està buit imprimint-lo en pantalla
         System.out.println("L'array està buit ");
         System.out.println("Podem veure que el contingut de l'array es tot NULL: ");
+        imprimirAnul(myArray);
+
+    }
+    private static void imprimirAnul(String[] myArray) {
         // Fem el bucle per a imprimir el contigut de l'array
         for (int i = 0; i < 10; i++){
             System.out.println(myArray[i]);
