@@ -262,20 +262,40 @@ public class menu {
     }
 
     private static void anul_lar(String[] myArray, int numElem) {
-        /* Funció anul_lar */
-        // Fem un bucle per a canvie el valor de les posicións a NULL
-        for (int i = 0; i < numElem; i++){
-            myArray[i] = null;
+    // Imprimir el array actual
+    System.out.println("Array actual:");
+    imprimir(myArray);
+
+    // Demanar al usuari que introdueix el element que vol eliminar
+    System.out.println("Introdueix l'element que vols eliminar:");
+    String element = sc.nextLine();
+
+    // Buscar la posició del element
+    int posicio = -1;
+    for (int i = 0; i < myArray.length; i++) {
+        if (myArray[i].equals(element)) {
+            posicio = i;
+            break;
         }
-        // Canviem a 0 el valor de numElem
-        numElem = 0;
-
-        // Comprovem que l'array està buit imprimint-lo en pantalla
-        System.out.println("L'array està buit ");
-        System.out.println("Podem veure que el contingut de l'array es tot NULL: ");
-        imprimirAnul(myArray);
-
     }
+
+    // Si el element se troba en el array eliminarlo
+    if (posicio != -1) {
+        for (int i = posicio; i < myArray.length - 1; i++) {
+            myArray[i] = myArray[i + 1];
+        }
+        myArray[myArray.length - 1] = null;
+        myArray = ajustarArray(myArray);
+        System.out.println("Element eliminat.");
+    } else {
+        System.out.println("L'element no es troba en el array.");
+    }
+
+    // Imprimir el array actualizat
+    System.out.println("Array actualitzat:");
+    imprimir(myArray);
+    }
+    
     private static void imprimirAnul(String[] myArray) {
         // Fem el bucle per a imprimir el contigut de l'array
         for (int i = 0; i < 10; i++){
@@ -288,40 +308,32 @@ public class menu {
         Entrada: llista, opció (primer o darrer)
         Sortida: element x*/
 
-        // Imprimir el array actual
-        System.out.println("Array actual:");
-        imprimir(myArray);
-
-        // Demanar al usuari que introdueix el element que vol eliminar
-        System.out.println("Introdueix l'element que vols eliminar:");
-        String element = sc.nextLine();
-
-        // Buscar la posició del element
-        int posicio = -1;
-        for (int i = 0; i < myArray.length; i++) {
-            if (myArray[i].equals(element)) {
-                posicio = i;
-                break;
-            }
-        }
-
-        // Si el element se troba en el array eliminarlo
-        if (posicio != -1) {
-            for (int i = posicio; i < myArray.length - 1; i++) {
-                myArray[i] = myArray[i + 1];
-            }
-            myArray[myArray.length - 1] = null;
-            myArray = ajustarArray(myArray);
-            System.out.println("Element eliminat.");
-        } else {
-            System.out.println("L'element no es troba en el array.");
-        }
-
-        // Imprimir el array actualizat
-        System.out.println("Array actualitzat:");
-        imprimir(myArray);
-    }
-
+               // Imprimir el array actual
+               System.out.println("Array actual:");
+               imprim(myArray);
+       
+               // Demanar al usuari que ingrese 1 per a imprimir el primer element o 2 per a imprimir el últim
+               System.out.println("Ingresa 1 per a imprimir el primer elemento o 2 para imprimir el últim:");
+               int opcio = sc.nextInt();
+       
+               // Imprimir el primer o últim element segon la opció ingresada per el usuari
+               if (opcio == 1) {
+                   System.out.println("Primer element: " + myArray[0]);
+               } else if (opcio == 2) {
+                   System.out.println("Últim element: " + myArray[myArray.length - 1]);
+               } else {
+                   System.out.println("Opció inválida.");
+               }
+           }
+       
+           private static void imprim(String[] myArray) {
+               for (String element : myArray) {
+                   System.out.print(element + " ");
+               }
+               System.out.println();
+           }
+           
+    
     private static void imprimir(String[] myArray) {
         for (String element : myArray) {
             System.out.print(element + " ");
@@ -364,7 +376,7 @@ public class menu {
         }
     
     private static void ordenar() {
-
+  
     }
 
     private static void localitzarEnOrdenada() {
