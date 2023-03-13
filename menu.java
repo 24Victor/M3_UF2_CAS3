@@ -5,7 +5,7 @@ public class menu {
 
     public static void main(String[] args) {
         int numElem = 10;
-        String myArray[] = new String[10];
+        String myArray[] = demanarCognoms("Introdueix 10 cognoms: ");
         int p = 0;
         int opcio;
 
@@ -20,7 +20,7 @@ public class menu {
 
     public static String[] demanarCognoms(String msg){
         String[] myArray = new String[10];
-        System.out.println(msg + "Introdueix 10 cognoms:");
+        System.out.println(msg);
         for(int i = 0; i < 10; i++){
             myArray[i] = sc.nextLine();
             if(i<9){
@@ -50,7 +50,7 @@ public class menu {
 
     private static int llegirOpcio() {
         int opcio = sc.nextInt();
-        sc.nextLine();  
+        sc.nextLine(); 
         return opcio;
     }
 
@@ -142,30 +142,23 @@ public class menu {
         }   
     }
 
-    public static int localitzarCognom(String[] myArray, String cognom, int numElem){
+    private static void localitzar(String[] myArray, int numElem) {
         //Demanem quin cognom volem buscar
         System.out.println("Introdueix un cognom a buscar ");
-        String buscat = sc.next();
-        
-        int posicio = localitzarCognom(myArray, buscat, numElem);
-        
-        if(posicio == -1){
-            System.out.println("El cognom " + buscat + " no ha estat trobat.");
-        }else{
-            System.out.println("El cognom " + buscat + " està en la posició " + posicio);
-        }
-    }
-    
-    public static int localitzarCognom(String[] myArray, String cognom, int numElem){
-        int posicio = -1;
+
+        //Li posem buscat al cognom que anem a buscar
+        String buscat = "";
+        buscat = sc.next();
+
+        //Fem un bucle que fagi tot el recorregut de l'array
         for (int i = 0; i < numElem; i++){
-            if(cognom.equals(myArray[i])){
-                posicio = i;
-                break;
+            //Si el cognom buscat coincideix amb algun cognom de l'array 
+            if(buscat.equals(myArray[i])){
+                //Imprimim el cognom i la posició en la que es troba
+                System.out.println("El cognom " + myArray[i] + " està en la posició " + i);
             }
+          
         }
-        return posicio;
-    }
     }
 
     private static void recuperar(String[] myArray, int numElem, int p) {
@@ -299,16 +292,19 @@ public class menu {
     }
     
     private static void imprimir(String[] myArray, int numElem) {
+        imprimir(myArray);
+    }
+
+    private static void imprimir(String[] myArray) {
         /*imprimir: imprimeix tots els elements de la llista del primer a l'últim amb la seva posició
         Entrada: llista
         Sortida: impressió dels elements de l'array, amb la seva posició, per pantalla.*/
         //bucle for per a la posició del element    
-        for(int z = 0; z < numElem;z++){
+        for(int z = 0; z < myArray.length; z++){
             //printejar el element i la posició del array
-            System.out.println( "Element: " + myArray[z]+" és la posició "+ (z+1) );
+            System.out.println("Element: " + myArray[z] + " és la posició " + (z+1));
         }
-  
-    }
+        }
     
     private static void ordenar() {
   
