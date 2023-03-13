@@ -26,7 +26,6 @@ public class localitzarEnOrdenada {
 
     public static int recuperarElement (String ele, String[] llista) {
 
-
         int p = -1 ;
 
         for (int i = 0; i < llista.length; i++) {
@@ -35,12 +34,8 @@ public class localitzarEnOrdenada {
                 break;
             }
         }
-
-        return p;
-        
-        
+        return p;       
     }
-        
 }
 
 
