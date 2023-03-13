@@ -156,6 +156,7 @@ public class menu {
        }
 
     }
+    
     public static String llegirCognom(String missatge) {
         Scanner sc = new Scanner(System.in);
         System.out.println(missatge); 
