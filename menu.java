@@ -364,7 +364,7 @@ public class menu {
         }
     
     private static void ordenar() {
-  
+
     }
 
     private static void localitzarEnOrdenada() {
