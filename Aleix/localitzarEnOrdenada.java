@@ -10,13 +10,13 @@ public class localitzarEnOrdenada {
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Introdueix el element a buscar: ");
-        int element = scanner.nextInt();
+        String element = scanner.next();
 
-        int posicio = -1;
+        int posicio = 0;
 
-        String prova;
-        prova = recuperarElement(posicio, element, myArray );
-        System.out.println(prova);
+        int p;
+        p = recuperarElement(posicio, element, myArray );
+        System.out.println("El elemento se encuentra en la posición" + " " + p);
 
     }
 
@@ -24,29 +24,24 @@ public class localitzarEnOrdenada {
         Entrada: llista ordenada
         Sortida: posició p*/
 
-    public static String recuperarElement ( int io, String p, String[] llista) {
+    public static int recuperarElement ( int p, String ele, String[] llista) {
 
         for (int i = 0; i < llista.length; i++) {
-            if (llista[i] == p) {
-                io = i;
+            if (llista[i] == ele) {
+                p = i;
                 break;
             }
         }
 
-        if (io != -1) {
+        /*if (io != -1) {
             System.out.println("El elemento " + p + " se encuentra en la posición " + io);
         } else {
             System.out.println("El elemento " + p + " no se encuentra en el array");
-        }
+        }*/
+        return p;
     }
         
 }
 
-   /*  public static int llegirElement (String msg){
-        System.out.println(msg);
-        String enter = sc.nextLine();
-        return element;
-
-    }*/
 
 
