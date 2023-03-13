@@ -10,7 +10,7 @@ public class suprimir {
         /* suprimir: elimina de la llista l'element de la posició p
             Entrada: posició p, llista
             Sortida: llista*/
-                
+
         /* Suprimir dada */
                 
         /* Titol del programa */

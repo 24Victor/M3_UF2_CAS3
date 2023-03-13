@@ -1,0 +1,28 @@
+package Raul;
+
+public class localitzarentrada {
+
+    public static void main(String[] args) {
+        int[] llista = {1, 2, 3, 4, 5};
+        int x = 3;
+        int result = myArray(llista, x);
+        System.out.println(result);
+    }
+
+    public static int myArray(int[] llista, int x) {
+        int esquerra = 0;
+        int dreta = llista.length - 1;
+
+        while (esquerra <= dreta) {
+            int mig = (esquerra + dreta) / 2;
+
+            if (llista[mig] == x) return mig;
+
+            if (llista[mig] < x) esquerra = mig + 1;
+            else dreta = mig - 1;
+        }
+
+        return -1;
+    }
+
+}
