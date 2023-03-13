@@ -1,6 +1,6 @@
 package Raul;
 
-public class localitzarentrada {
+public class localitzarEnOrdenada {
 
     public static void main(String[] args) {
         int[] llista = {1, 2, 3, 4, 5};
