@@ -17,12 +17,11 @@ public class inserir {
         System.out.println(" INGRESA L'ELEMENT QUE VOLS AFEGIR: ");
         String x = sc.next();
 
-        String[] prova;
-        prova = inserirElement(m, x, myArray);
+        inserirElement(m, x, myArray);
 
         System.out.println(" ELEMENTS RESTANTS DE LA LLISTA: ");
-            for (int i = 0; i < p; i++) {
-                System.out.println(prova[i]);
+            for (int i = 0; i < myArray.length; i++) {
+                System.out.println(myArray[i]);
             }
     }
 
@@ -32,10 +31,10 @@ public class inserir {
      * @param myArray2
      * @return
      */
-    public static String[] inserirElement(int m, String x, String[] myArray2) {
+    public static String[] inserirElement(int m, String x, String[] myArray) {
         
             // Desplaça els elements cap a la dreta per a fer espai per a el nou element
-            for (int i = myArray2.length ; i >= m; i--) {
+            for (int i = m ; i > m-1 ;i--) {
                 myArray[i] = myArray[i - 1];
             }
 
@@ -47,4 +46,3 @@ public class inserir {
         }
         
     }
-
