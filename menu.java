@@ -82,7 +82,7 @@ public class menu {
                 imprimir(myArray, numElem);
                 break;
             case 9:
-                ordenar();
+                ordenar(myArray);
                 break;
             case 10:
                 localitzarEnOrdenada(myArray);
@@ -348,7 +348,7 @@ public class menu {
             }
         }
 
-        System.out.println("El element se troba en la posició" + " " + p);
+        System.out.println("El element se troba en la posició" + " " );
       /*localitza la primera posició p en la que es troba un element x. (Usar l’algorisme de cerca binària)
         Entrada: llista ordenada
         Sortida: posició p*/
