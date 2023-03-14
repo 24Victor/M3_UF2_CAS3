@@ -324,7 +324,7 @@ public class menu {
         imprimi(myArray);
       
         // Demanar al usuari que ingrese 1 per a imprimir el primer element o 2 per a imprimir el últim
-        System.out.println("Ingresa 1 per a imprimir el primer elemento o 2 para imprimir el últim:");
+        System.out.println("Ingresa 1 per a imprimir el primer element o 2 per a imprimir el últim:");
         int opcio = sc.nextInt();
       
         // Imprimir el primer o últim element segon la opció ingresada per el usuari
