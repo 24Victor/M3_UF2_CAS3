@@ -101,46 +101,42 @@ public class menu {
         Entrada: element x, posició p, llista 
         Sortida: llista*/
 
-        /* Restem un element a l'array per a poder afegir l'element després */  
-        numElem = numElem-1;
+        int posicio = llegirPosicio();
+        String element = llegirElement();
+        inserirElement(posicio, element, myArray);
+        imprimirArray(myArray);
+    }
 
-        /* Condicional (si el número d'elements es == a la llargada de l'array s'imprimeix un missatge) */
-        if (numElem == myArray.length) {
-            System.out.println("L'array està plena. No es pot inserir més elements.");
+    public static int llegirPosicio() {
+        System.out.println("INGRESA LA POSICIO ON VOLS INSERIR L'ELEMENT:");
+        return sc.nextInt();
+    }
+
+    public static String llegirElement() {
+        System.out.println("INGRESA L'ELEMENT QUE VOLS AFEGIR:");
+        return sc.next();
+    }
+
+    public static void inserirElement(int posicio, String element, String[] array) {
+        desplacarDreta(posicio, array);
+        inserirElementEnPosicio(posicio, element, array);
+    }
+
+    public static void desplacarDreta(int posicio, String[] array) {
+        for (int i = array.length - 2; i >= posicio; i--) {
+            array[i + 1] = array[i];
         }
-        /* Afegir dada i moure a la dreta */
-        else{
+    }
 
-        /* Titol del programa */
-        System.out.println("Inserir");
+    public static void inserirElementEnPosicio(int posicio, String element, String[] array) {
+        array[posicio] = element;
+    }
 
-        /* Demanem a l'usuari que introdueixi un número */
-        System.out.println("Ingresa la posición donde quieres insertar el elemento: ");
-        int m = sc.nextInt();
-
-        /* Condicional (Si el núumero es menor a 0 o major a 10 demanarem un altre cop el número) */
-        while(m < 0 || m > numElem){
-            System.out.println("Error, tornar a introduir un numero del 0 al " + numElem);
-            m = sc.nextInt();
+    public static void imprimirArray(String[] array) {
+        System.out.println("ELEMENTS RESTANTS DE LA LLISTA:");
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
         }
-        /* Demanem a l'usuari que ingresi un element a l'array */
-        System.out.println("Ingresa l'element que vols afegir: ");
-        String x = sc.next();
-            
-        /* Desplaça els elements cap a la dreta per a fer espai per a el nou element */
-        for (int i = numElem - 1; i >= p; i--) {
-            myArray[i + 1] = myArray[i];
-        }
-        /* Inserta el nou element a la posició especificada */
-        myArray[m] = x;
-        numElem++;
-
-        /* Imprimim l'array per a fer la comprovació de que tot funciona correctament */
-        System.out.println("Elements restants de la llista: ");
-        for (int i = 0; i < numElem; i++) {
-            System.out.println(myArray[i]);
-        }
-        }   
     }
 
     private static void localitzar(String[] myArray, int numElem) {
@@ -205,30 +201,31 @@ public class menu {
         /* suprimir: elimina de la llista l'element de la posició p
             Entrada: posició p, llista
             Sortida: llista*/
-                
-        /* Suprimir dada */
-                
-        /* Titol del programa */
-        System.out.println("Suprimir");
                                 
         /* Demanem a l'usuari quina posició vol eliminar */
-        System.out.println("Ingresa la posició de l'element que vols eliminar: ");
-        int position = sc.nextInt();
+        System.out.println("Ingresa la posició de l'element que vols eliminar: ");      //  Demanem a l'usuari quina posició vol eliminar
+        int position = sc.nextInt();        // Llegeix l'entrada del usuari i l'asigna a la variable "position"
 
-        /* Desplacem tots els elements detràs de la posició especificada cap a l'esquerra */
-        for (int i = position; i < numElem - 1; i++) {
-            myArray[i] = myArray[i + 1];
-        }
         /* Verifiquem que la posició ingresada sigui valida */
-        while(p > position || position > numElem){
-            System.out.println("Error, tornar a introduir un numero del 1 al 10.");
-            position = sc.nextInt();
+        while (position < 1 || position > numElem) {        // Bucle que s'executa mentres la posicio ingresada no sigue valida (es a dir, menor que 1 o major que numElem)
+            System.out.println("Error, torna a introduir un numero del 1 al 10.");
+            position = sc.nextInt();        // Llegeix l'entrada del usuari novament i l'asigna a la variable "position"
+        }
+        
+        suprimi(myArray, position, numElem);        // Crida al metodo "suprimir" i pasa l'Array i la posicio del element a eliminar com arguments
+    }
+
+    public static void suprimi(String[] myArray, int position, int numElem) {       // Metode para eliminar l'element en la posición especificada
+        
+        /* Desplacem tots els elements detràs de la posició especificada cap a l'esquerra */
+        for (int i = position - 1; i < numElem - 1; i++) {      // Bucle para recorrer cada element detras de la posiciO especificada I desplazarlo a l'esquerra
+            myArray[i] = myArray[i + 1];        // Asigna el seguent element al element actual
         }
 
         /* Restem una posició a l'array */
         numElem--;
 
-        /* Imprimim l'array ja actualitzada */
+        /* Imprimim l'array ja actualitzada, mostran tots els elements restants a l'Array amb el nou ordre */
         System.out.println("Elements restants de la llista: ");
         for (int i = 0; i < numElem; i++) {
             System.out.println(myArray[i]);

@@ -27,8 +27,7 @@ public class suprimir {
             System.out.println("Error, torna a introduir un numero del 1 al 10.");
             position = sc.nextInt();        // Llegeix l'entrada del usuari novament i l'asigna a la variable "position"
         }
-
-        /* Suprimir dada */
+        
         suprimir(myArray, position);        // Crida al metodo "suprimir" i pasa l'Array i la posicio del element a eliminar com arguments
     }
 
