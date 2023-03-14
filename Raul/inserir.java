@@ -22,7 +22,7 @@ public class inserir {
         System.out.println("INGRESA L'ELEMENT QUE VOLS AFEGIR:");
         return sc.next();       //
     }
-
+    
     public static void inserirElement(int posicio, String element, String[] array) { // declara un mètode anomenat "inserirElement()", que s'utilitza per inserir l'element a la posició especificada
         desplacarDreta(posicio, array);     // crida al mètode "desplacarDreta()" per desplaçar els elements de l'array a la dreta, per fer espai per al nou element
         inserirElementEnPosicio(posicio, element, array);       //  crida al mètode "inserirElementEnPosicio()" per inserir el nou element a la posició especificada
