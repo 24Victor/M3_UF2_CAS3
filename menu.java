@@ -265,10 +265,6 @@ public class menu {
         } else {
             System.out.println("L'element no es troba en el array.");
         }
-
-        // Imprimir el array actualizat
-        System.out.println("Array actualitzat:");
-        imprimiS(myArray);
     }
 
     private static void imprimiS(String[] myArray) {
