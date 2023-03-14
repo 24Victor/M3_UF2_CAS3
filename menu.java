@@ -240,26 +240,63 @@ public class menu {
         Entrada: element x, llista
         Sortida: llista*/
 
-        /*Introduir cognom que vol eliminar */
-        System.out.println("Introdueix el cognom que vols eliminar");
-        String x = sc.next();
+        // Imprimir el array actual
+        System.out.println("Array actual:");
+        imprimiS(myArray);
 
-        /*Bucle per a desplaçar una posició cap a l'esquerra quan trobi una coincidencia amb x*/
-        for (int i =0; i < numElem; i++){
-            /*Si x equival a algun element de dins de l'array: */
-            if(x.equals(myArray[i])){
-                /*Mourem els elements que queden detras d'aquesta posicio cap a l'esquerra, fins cercar un altra coincidencia si n'hi ha */
-                for (int j = i; j<numElem; j++){
-                    myArray[i]=myArray[i+1];
-                    numElem--;
-                    i--;
-                }
+        // Demanar al usuari que introdueix el element que vol eliminar
+        System.out.println("Introdueix l'element que vols eliminar:");
+        String element = sc.nextLine();
+
+        // Buscar la posició del element
+        int posicio = -1;
+        for (int i = 0; i < myArray.length; i++) {
+            if (myArray[i].equals(element)) {
+                posicio = i;
+                break;
             }
         }
-        /*Imprimir la llista actualitzada */
-        for(int i=0; i< numElem; i++){
-            System.out.println(myArray[i]);
+
+        // Si el element se troba en el array eliminarlo
+        if (posicio != -1) {
+            for (int i = posicio; i < myArray.length - 1; i++) {
+                myArray[i] = myArray[i + 1];
+            }
+            myArray[myArray.length - 1] = null;
+            myArray = ajustarArray(myArray);
+            System.out.println("Element eliminat.");
+        } else {
+            System.out.println("L'element no es troba en el array.");
         }
+
+        // Imprimir el array actualizat
+        System.out.println("Array actualitzat:");
+        imprimiS(myArray);
+    }
+
+    private static void imprimiS(String[] myArray) {
+        for (String element : myArray) {
+            System.out.print(element + " ");
+        }
+        System.out.println();
+    }
+
+    private static String[] ajustarArray(String[] myArray) {
+        int cognoms = 0;
+        for (String element : myArray) {
+            if (element == null) {
+                cognoms++;
+            }
+        }
+        String[] newArray = new String[myArray.length - cognoms];
+        int index = 0;
+        for (String element : myArray) {
+            if (element != null) {
+                newArray[index] = element;
+                index++;
+            }
+        }
+        return newArray;
     }
 
     private static void anul_lar(String[] myArray, int numElem) {
@@ -289,32 +326,36 @@ public class menu {
         Entrada: llista, opció (primer o darrer)
         Sortida: element x*/
 
-        while(true){
-            System.out.println("Introdueix 1 si vols veure el primer o 2 si vols veure el darrer");
-            int i= sc.nextInt();
-            /*Si es igual a 1 ens imprimira el primer element introduit a l'array */
-            if(i==1){
-                System.out.println(myArray[0]);
-                break;
+        // Imprimir el array actual
+        System.out.println("Array actual:");
+        imprimi(myArray);
+      
+        // Demanar al usuari que ingrese 1 per a imprimir el primer element o 2 per a imprimir el últim
+        System.out.println("Ingresa 1 per a imprimir el primer elemento o 2 para imprimir el últim:");
+        int opcio = sc.nextInt();
+      
+        // Imprimir el primer o últim element segon la opció ingresada per el usuari
+        if (opcio == 1) {
+            System.out.println("Primer element: " + myArray[0]);
+            } else if (opcio == 2) {
+                System.out.println("Últim element: " + myArray[myArray.length - 1]);
+                } else {
+                  System.out.println("Opció inválida.");
+              }
+          }
+      
+        private static void imprimi(String[] myArray) {
+              for (String element : myArray) {
+                  System.out.print(element + " ");
+              }
+              System.out.println();
             }
-            /*Si es igual a 2 ens imprimira el darrer element introduit a l'array */
-                else if(i==2){
-                    System.out.println(myArray[numElem - 1]);
-                break;
-                }
-                /*Finalment si el numero introduit no es ni 1 ni 2 direm que no e vàlid i li demanarem un altre vegada el numero*/
-                else{
-                    System.out.println("El numero introduit no esta a la llista torna a introduir un numero");
-                    break; 
-                }     
-        }
-    }
     
     private static void imprimir(String[] myArray, int numElem) {
-        imprimir(myArray);
+        print(myArray);
     }
 
-    private static void imprimir(String[] myArray) {
+    private static void print(String[] myArray) {
         /*imprimir: imprimeix tots els elements de la llista del primer a l'últim amb la seva posició
         Entrada: llista
         Sortida: impressió dels elements de l'array, amb la seva posició, per pantalla.*/
