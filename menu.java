@@ -374,27 +374,39 @@ public class menu {
         }
     }    
 
-    private static void localitzarEnOrdenada(String[] myArray) {
+    private static int localitzarEnOrdenada(String[] myArray){
 
-        System.out.print("Introdueix el element a buscar: ");
-        String element = sc.next();
+            /*localitza la primera posició p en la que es troba un element x. (Usar l’algorisme de cerca binària)
+            Entrada: llista ordenada
+            Sortida: posició p*/
 
-        ordenar(myArray);
-        int i = myArray.length/2;               
-        int resultat;
-        while (myArray[i] != element) {
-            resultat = element.compareTo(myArray[i]);
-            if (resultat > 0){
-                i = (i + myArray.length)/2;
-            }
-        }
+            //Declarem 3 variables, el baux(minim del array), alt(el array complet -1) i mitg
+            int baix = 0;
+            int alt = myArray.length -1;
+            int mitg;
 
-        System.out.println("El element se troba en la posició" + " " );
-      /*localitza la primera posició p en la que es troba un element x. (Usar l’algorisme de cerca binària)
-        Entrada: llista ordenada
-        Sortida: posició p*/
+            System.out.print("Introdueix el element a buscar: ");
+            String element = sc.next();
 
-    
+            ordenar(myArray);
+            while (baix <= alt) {
+                mitg = (baix + alt) / 2;
         
-    }
+                if (myArray[mitg].equals(element)) {
+                    // Trobeu l'element, ara trobeu la primera aparició d'aquest
+                    while (mitg > 0 && myArray[mitg - 1].equals(element)) {
+                        mitg--;
+                    }
+                } else if (myArray[mitg].compareTo(element) < 0) {
+                    // element és més gran que mig, cerca a la meitat dreta
+                    baix = mitg + 1;
+                } else {
+                    // L'element és més petit que el mitjà, cerqueu a la meitat esquerra
+                    alt = mitg - 1;
+                }
+                System.out.println("Posició de l'element " + element + " és " + mitg);
+                break;
+            }
+            return -1;
+        }      
 }
