@@ -16,16 +16,31 @@ public class inserir {
         System.out.println(" INGRESA LA POSICIO ON VOLS INSERIR L'ELEMENT: ");
         int m = sc.nextInt();
 
-        // Condicional (Si el número es menor a 0 o mayor a 10 demanarem otro cop el número)
-        while (m < 0 || m >= numElem) {
-            System.out.println("ERROR, TORNA A INTRODUIR UN NUMERO DEL 0 AL " + (numElem - 1));
-            m = sc.nextInt();
-        }
+        m = comprovarLimit(m);
 
         // Demanem a l'usuari que ingresi un element a l'array
         System.out.println(" INGRESA L'ELEMENT QUE VOLS AFEGIR: ");
         String x = sc.next();
 
+        String[] prova;
+        prova = inserirElement(m, x);
+
+        System.out.println(" ELEMENTS RESTANTS DE LA LLISTA: ");
+            for (int i = 0; i < p; i++) {
+                System.out.println(prova);
+            }
+    }
+
+    public static int comprovarLimit(int m) {
+        // Condicional (Si el número es menor a 0 o mayor a 10 demanarem otro cop el número)
+        while (m < 0 || m >= numElem) {
+            System.out.println("ERROR, TORNA A INTRODUIR UN NUMERO DEL 0 AL " + (numElem - 1));
+            m = sc.nextInt();
+        }
+        return m;
+    }
+
+    public static String[] inserirElement(int m, String x) {
         // Condicional (si el número d'elements es == a la llargada de l'array s'imprimeix un missatge)
         if (p == myArray.length) {
             System.out.println(" L'ARRAY ESTÀ PLENA. NO ES POT INSERIR MÉS ELEMENTS. ");
@@ -39,11 +54,10 @@ public class inserir {
             myArray[m] = x;
             p++;
 
+
             // Imprimim l'array per a fer la comprovació de que tot funciona correctament
-            System.out.println(" ELEMENTS RESTANTS DE LA LLISTA: ");
-            for (int i = 0; i < p; i++) {
-                System.out.println(myArray[i]);
-            }
+            
         }
+        return myArray;
     }
 }
