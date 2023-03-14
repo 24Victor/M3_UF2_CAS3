@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class menu {
     public static Scanner sc = new Scanner(System.in);
@@ -161,6 +162,7 @@ public class menu {
         Scanner sc = new Scanner(System.in);
         System.out.println(missatge); 
         String cognom = sc.nextLine();
+        sc.close();
         return cognom;
     }
     
@@ -240,8 +242,7 @@ public class menu {
 
         /*Introduir cognom que vol eliminar */
         System.out.println("Introdueix el cognom que vols eliminar");
-        String x = "";
-        x=sc.next();
+        String x = sc.next();
 
         /*Bucle per a desplaçar una posició cap a l'esquerra quan trobi una coincidencia amb x*/
         for (int i =0; i < numElem; i++){
@@ -324,32 +325,35 @@ public class menu {
         }
         }
     
-    private static void ordenar() {
-  
-    }
+    private static void ordenar(String[] myArray) {
 
-    private static void localitzarEnOrdenada(String[]myArray) {
+        Arrays.sort(myArray);
+        for (String s : myArray) {
+            System.out.println(s);
+        }
+    }    
+
+    private static void localitzarEnOrdenada(String[] myArray) {
 
         System.out.print("Introdueix el element a buscar: ");
         String element = sc.next();
 
-        int p;
-        p = recuperarElement(element, myArray );
-        System.out.println("El element se troba en la posició" + " " + p);
+        ordenar(myArray);
+        int i = myArray.length/2;               
+        int resultat;
+        while (myArray[i] != element) {
+            resultat = element.compareTo(myArray[i]);
+            if (resultat > 0){
+                i = (i + myArray.length)/2;
+            }
         }
+
+        System.out.println("El element se troba en la posició" + " " + p);
       /*localitza la primera posició p en la que es troba un element x. (Usar l’algorisme de cerca binària)
         Entrada: llista ordenada
         Sortida: posició p*/
 
-    public static int recuperarElement (String ele, String[] llista) {
-        int p = -1 ;
-
-        for (int i = 0; i < llista.length; i++) {
-            if (llista[i] == ele) {
-                p = i;
-                break;
-            }
-        }
-        return p;
+    
+        
     }
 }

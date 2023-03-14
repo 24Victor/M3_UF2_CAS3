@@ -4,13 +4,10 @@ public class ordenar {
     public static void main(String[] args) {
 
         String[] myArray = {"dilluns", "dimarts", "dimecres", "dijous", "divendres"};
-
         ordenarArreglo(myArray);
-
         imprimirArreglo(myArray);
     }
-
-
+    
     public static void ordenarArreglo(String[] arreglo) {
         Arrays.sort(arreglo);
     }
