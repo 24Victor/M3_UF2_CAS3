@@ -27,7 +27,7 @@ public class inserir {
 
         System.out.println(" ELEMENTS RESTANTS DE LA LLISTA: ");
             for (int i = 0; i < p; i++) {
-                System.out.println(prova);
+                System.out.println(prova[i]);
             }
     }
 
