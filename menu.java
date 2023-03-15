@@ -100,15 +100,17 @@ public class menu {
         passant els elements de la posició p i següents a la posició immediatament posterior. 
         Entrada: element x, posició p, llista 
         Sortida: llista*/
-
-        int posicio = llegirPosicio();      // crida al mètode "llegirPosicio()" per llegir la posició on es vol inserir l'element i emmagatzema el resultat en una variable anomenada "posicio"
+        
+        // crida al mètode "llegirPosicio()" per llegir la posició on es vol inserir l'element i emmagatzema el resultat en una variable anomenada "posicio"
+        int posicio = llegirPosicio();      
         String element = llegirElement();       // crida al mètode "llegirElement()" per llegir l'element que es vol inserir i emmagatzema el resultat en una variable anomenada "element"
         inserirElement(posicio, element, myArray);  // crida al mètode "inserirElement()" per inserir l'element a la posició especificada
         imprimirArray(myArray);     // crida al mètode "imprimirArray()" per imprimir els elements de l'array després de la inserció
     }
+
     public static int llegirPosicio() {  // declara un mètode anomenat "llegirPosicio()", que s'utilitza per llegir la posició on es vol inserir l'element
-    System.out.println("INGRESA LA POSICIO ON VOLS INSERIR L'ELEMENT:");
-    return sc.nextInt();  // utilitza la variable Scanner prèviament definida per llegir l'entrada de l'usuari com un enter i torna aquest sencer
+        System.out.println("INGRESA LA POSICIO ON VOLS INSERIR L'ELEMENT:");
+        return sc.nextInt();  // utilitza la variable Scanner prèviament definida per llegir l'entrada de l'usuari com un enter i torna aquest sencer
     }
 
     public static String llegirElement() {  // declara un mètode anomenat "llegirElement()", que s'utilitza per llegir l'element que voleu inserir
@@ -213,6 +215,7 @@ public class menu {
        
        suprimi(myArray, position, numElem);        // Crida al metodo "suprimir" i pasa l'Array i la posicio del element a eliminar com arguments
    }
+   
    public static void suprimi(String[] myArray, int position, int numElem) {       // Metode para eliminar l'element en la posición especificada 
         /* Desplacem tots els elements detràs de la posició especificada cap a l'esquerra */
         for (int i = position - 1; i < numElem - 1; i++) {      // Bucle para recorrer cada element detras de la posiciO especificada I desplazarlo a l'esquerra
