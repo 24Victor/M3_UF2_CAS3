@@ -79,7 +79,7 @@ public class menu {
                 primerDarrer(myArray, numElem);
                 break;
             case 8:
-                imprimir(myArray, numElem);
+                imprimir(myArray);
                 break;
             case 9:
                 ordenar(myArray);
@@ -348,21 +348,21 @@ public class menu {
               System.out.println();
             }
     
-    private static void imprimir(String[] myArray, int numElem) {
+    private static void imprimir(String[] myArray) {
         print(myArray);
     }
 
-    private static void print(String[] myArray) {
+    private static void print(String[] myArray, int numElem) {
         /*imprimir: imprimeix tots els elements de la llista del primer a l'últim amb la seva posició
         Entrada: llista
         Sortida: impressió dels elements de l'array, amb la seva posició, per pantalla.*/
         //bucle for per a la posició del element    
-        for(int i = 0; i < myArray.length; i++){
+        for(int p = 0; p < numElem; p++){
             
             //printejar el element i la posició del array
-            if(myArray[i]!="")
+            if(myArray[p]!="")
             {
-                System.out.println("Element: " + myArray[i] + " és la posició " + (i+1));
+                System.out.println("Element: " + myArray[p] + " és la posició " + (p+1));
             }
             System.out.println("");
         }
