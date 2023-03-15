@@ -360,12 +360,12 @@ public class menu {
         Entrada: llista
         Sortida: impressió dels elements de l'array, amb la seva posició, per pantalla.*/
         //bucle for per a la posició del element    
-        for(int z = 0; z < myArray.length; z++){
+        for(int i = 0; i < myArray.length; i++){
             
             //printejar el element i la posició del array
-            if(myArray[z]!="")
+            if(myArray[i]!="")
             {
-                System.out.println("Element: " + myArray[z] + " és la posició " + (z+1));
+                System.out.println("Element: " + myArray[i] + " és la posició " + (i+1));
             }
             System.out.println("");
         }
