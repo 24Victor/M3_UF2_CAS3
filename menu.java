@@ -103,9 +103,9 @@ public class menu {
         
         // crida al mètode "llegirPosicio()" per llegir la posició on es vol inserir l'element i emmagatzema el resultat en una variable anomenada "posicio"
         int posicio = llegirPosicio();      
-        String element = llegirElement();       // crida al mètode "llegirElement()" per llegir l'element que es vol inserir i emmagatzema el resultat en una variable anomenada "element"
-        inserirElement(posicio, element, myArray);  // crida al mètode "inserirElement()" per inserir l'element a la posició especificada
-        imprimirArray(myArray);     // crida al mètode "imprimirArray()" per imprimir els elements de l'array després de la inserció
+        String element = llegirElement(); //crida al mètode "llegirElement()" per llegir l'element que es vol inserir i emmagatzema el resultat en una variable anomenada "element"
+        inserirElement(posicio, element, myArray); //crida al mètode "inserirElement()" per inserir l'element a la posició especificada
+        imprimirArray(myArray);  //crida al mètode "imprimirArray()" per imprimir els elements de l'array després de la inserció
     }
 
     public static int llegirPosicio() {  // declara un mètode anomenat "llegirPosicio()", que s'utilitza per llegir la posició on es vol inserir l'element
@@ -204,22 +204,22 @@ public class menu {
             Sortida: llista*/
                 
        /* Demanem a l'usuari quina posició vol eliminar */
-       System.out.println("Ingresa la posició de l'element que vols eliminar: ");   //  Demanem a l'usuari quina posició vol eliminar
-       int position = sc.nextInt();      // Llegeix l'entrada del usuari i l'asigna a la variable "position"
+       System.out.println("Ingresa la posició de l'element que vols eliminar: ");  //Demanem a l'usuari quina posició vol eliminar
+       int position = sc.nextInt(); //Llegeix l'entrada del usuari i l'asigna a la variable "position"
 
        /* Verifiquem que la posició ingresada sigui valida */
-       while (position < 1 || position > numElem) {    // Bucle que s'executa mentres la posicio ingresada no sigue valida (es a dir, menor que 1 o major que numElem)
+       while (position < 1 || position > numElem) { //Bucle que s'executa mentres la posicio ingresada (menor que 1 o major que numElem)
            System.out.println("Error, torna a introduir un numero del 1 al 10.");
-           position = sc.nextInt();    // Llegeix l'entrada del usuari novament i l'asigna a la variable "position"
+           position = sc.nextInt(); //Llegeix l'entrada del usuari novament i l'asigna a la variable "position"
        }
        
-       suprimi(myArray, position, numElem);        // Crida al metodo "suprimir" i pasa l'Array i la posicio del element a eliminar com arguments
+       suprimi(myArray, position, numElem); //Crida al metodo "suprimir" i pasa l'Array i la posicio del element a eliminar com arguments
    }
    
-   public static void suprimi(String[] myArray, int position, int numElem) {       // Metode para eliminar l'element en la posición especificada 
-        /* Desplacem tots els elements detràs de la posició especificada cap a l'esquerra */
-        for (int i = position - 1; i < numElem - 1; i++) {      // Bucle para recorrer cada element detras de la posiciO especificada I desplazarlo a l'esquerra
-            myArray[i] = myArray[i + 1];        // Asigna el seguent element al element actual
+   public static void suprimi(String[] myArray, int position, int numElem) { //Metode para eliminar l'element en la posición especificada 
+    /* Desplacem tots els elements detràs de la posició especificada cap a l'esquerra */
+        for (int i = position - 1; i < numElem - 1; i++) { //Bucle para recorrer cada element detras de la posicio especificada i desplaçar-lo a l'esquerra
+            myArray[i] = myArray[i + 1]; //Asigna el seguent element al element actual
          }    
 
    /* Restem una posició a l'array */
