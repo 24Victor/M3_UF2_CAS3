@@ -118,13 +118,13 @@ public class menu {
         return sc.next();  // "return" és una instrucció que indica quin valor ha de tornar el mètode "llegirElement()" quan s'anomena. En aquest cas, el mètode retorna l'entrada de l'usuari com a cadena de caràcters (String) utilitzant el mètode "next()" de l'objecte Scanner "sc".
     }
 
-    public static void inserirElement(int p, String x, String[] array) { //declara un mètode anomenat "inserirElement()", que s'utilitza per inserir l'element a la posició especificada
-        desplacarDreta(p, array);  //crida al mètode "desplacarDreta()" per desplaçar els elements de l'array a la dreta, per fer espai per al nou element
+    public static void inserirElement(int p, String x, String[] array, int numElem) { //declara un mètode anomenat "inserirElement()", que s'utilitza per inserir l'element a la posició especificada
+        desplacarDreta(p, array, numElem);  //crida al mètode "desplacarDreta()" per desplaçar els elements de l'array a la dreta, per fer espai per al nou element
         inserirElementEnPosicio(p, x, array); //crida al mètode "inserirElementEnPosicio()" per inserir el nou element a la posició especificada
     }
 
-    public static void desplacarDreta(int p, String[] array) { //declara un mètode anomenat "desplacarDreta()", que s'utilitza per desplaçar els elements de l'array a la dreta, per fer espai per al nou element
-        for (int i = array.length - 2; i >= p; i--) { //utilitza un bucle for per desplaçar els elements de l'array a la
+    public static void desplacarDreta(int p, String[] array, int numElem) { //declara un mètode anomenat "desplacarDreta()", que s'utilitza per desplaçar els elements de l'array a la dreta, per fer espai per al nou element
+        for (int i = numElem - 2; i >= p; i--) { //utilitza un bucle for per desplaçar els elements de l'array a la
             array[i + 1] = array[i]; //dreta, començant des del final de l'array i movent-se cap a la posició especificada. A cada iteració del bucle, l'element actual es mou a la dreta una posició
         }
     }
