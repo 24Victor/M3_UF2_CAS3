@@ -5,15 +5,11 @@ public class ordenar {
 
         String[] myArray = {"dilluns", "dimarts", "dimecres", "dijous", "divendres"};
         ordenarArreglo(myArray);
-        imprimirArreglo(myArray);
     }
     
-    public static void ordenarArreglo(String[] arreglo) {
-        Arrays.sort(arreglo);
-    }
-
-    public static void imprimirArreglo(String[] arreglo) {
-        for (String s : arreglo) {
+    public static void ordenarArreglo(String[] myArray) {
+        Arrays.sort(myArray);
+        for (String s : myArray) {
             System.out.println(s);
         }
     }
