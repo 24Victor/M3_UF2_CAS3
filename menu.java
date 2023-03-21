@@ -104,7 +104,7 @@ public class menu {
 
         p = llegirPosicio();      
         x = llegirElement();   
-        inserirElement(p, x, myArray); 
+        inserirElement(p, x, myArray, numElem); 
         imprimirArray(myArray, numElem); 
     }
 
