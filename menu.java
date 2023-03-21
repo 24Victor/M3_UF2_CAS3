@@ -394,14 +394,20 @@ public class menu {
             String element = sc.next();
 
             ordenar(myArray);
+            //mentre baix sigui menor o igual que alt és calcula la posició mitg com la meitat entre baix i alt.
             while (baix <= alt) {
                 mitg = (baix + alt) / 2;
         
+                /*Si l'element a la posició mitg és igual a l'element buscat, s'executa un segon bucle 
+                while per trobar la primera aparició de l'element a la llista.*/
                 if (myArray[mitg].equals(element)) {
-                    // Trobeu l'element, ara trobeu la primera aparició d'aquest
+                    /* Disminueix mitg en 1 fins que mitg sigui 0 o fins que l'element a la posició mitg-1 
+                    sigui diferent de l'element buscat.*/
                     while (mitg > 0 && myArray[mitg - 1].equals(element)) {
                         mitg--;
                     }
+                    /*Si l'element a la posició mitg és menor que l'element buscat, significa que l'element buscat és a la 
+                    meitat dreta de la llista, per la qual cosa s'actualitza baix com a mitg + 1. */
                 } else if (myArray[mitg].compareTo(element) < 0) {
                     // element és més gran que mig, cerca a la meitat dreta
                     baix = mitg + 1;
