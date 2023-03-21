@@ -7,14 +7,14 @@ public class menu {
     public static void main(String[] args) {
         int numElem = 10;
         String myArray[] = demanarCognoms("Introdueix 10 cognoms: ");
-        int p;
-        String x;
+        int p = sc.nextInt();        
+        String x = sc.next();
         int opcio;
 
         do {
             mostrarMenu();
             opcio = llegirOpcio();
-            executarOpcio(opcio, myArray, numElem, p);
+            executarOpcio(opcio, myArray, numElem, p, x);
         } while (opcio != 11);
 
         System.out.println("Sortint del programa...");
@@ -56,10 +56,10 @@ public class menu {
         return opcio;
     }
 
-    private static void executarOpcio(int opcio, String[] myArray, int numElem, int p) {
+    private static void executarOpcio(int opcio, String[] myArray, int numElem, int p, String x) {
         switch (opcio) {
             case 1:
-                inserir(myArray, numElem, p);
+                inserir(myArray, numElem, p, x);
                 break;
             case 2:
                 localitzar(myArray, numElem);
@@ -96,15 +96,15 @@ public class menu {
         }
     }
 
-    private static void inserir(String[] myArray, int numElem, int p) {
+    private static void inserir(String[] myArray, int numElem, int p, String x) {
         /* inserir : insereix un element, x, en una posició, p, de la llista, 
         passant els elements de la posició p i següents a la posició immediatament posterior. 
         Entrada: element x, posició p, llista 
         Sortida: llista*/
 
-        int posicio = llegirPosicio();      
-        String element = llegirElement();   
-        inserirElement(posicio, element, myArray); 
+        p = llegirPosicio();      
+        x = llegirElement();   
+        inserirElement(p, x, myArray); 
         imprimirArray(myArray); 
     }
 
@@ -118,9 +118,9 @@ public class menu {
         return sc.next();  // "return" és una instrucció que indica quin valor ha de tornar el mètode "llegirElement()" quan s'anomena. En aquest cas, el mètode retorna l'entrada de l'usuari com a cadena de caràcters (String) utilitzant el mètode "next()" de l'objecte Scanner "sc".
     }
 
-    public static void inserirElement(int posicio, String element, String[] array) { //declara un mètode anomenat "inserirElement()", que s'utilitza per inserir l'element a la posició especificada
-        desplacarDreta(posicio, array);  //crida al mètode "desplacarDreta()" per desplaçar els elements de l'array a la dreta, per fer espai per al nou element
-        inserirElementEnPosicio(posicio, element, array); //crida al mètode "inserirElementEnPosicio()" per inserir el nou element a la posició especificada
+    public static void inserirElement(int p, String x, String[] array) { //declara un mètode anomenat "inserirElement()", que s'utilitza per inserir l'element a la posició especificada
+        desplacarDreta(p, array);  //crida al mètode "desplacarDreta()" per desplaçar els elements de l'array a la dreta, per fer espai per al nou element
+        inserirElementEnPosicio(p, x, array); //crida al mètode "inserirElementEnPosicio()" per inserir el nou element a la posició especificada
     }
 
     public static void desplacarDreta(int posicio, String[] array) { //declara un mètode anomenat "desplacarDreta()", que s'utilitza per desplaçar els elements de l'array a la dreta, per fer espai per al nou element
