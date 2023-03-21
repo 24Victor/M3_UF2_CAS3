@@ -370,7 +370,7 @@ public class menu {
     }
     
     private static void ordenar(String[] myArray) {
-
+        
         Arrays.sort(myArray);
         for (String s : myArray) {
             System.out.println(s);
