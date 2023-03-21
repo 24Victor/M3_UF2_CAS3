@@ -105,7 +105,7 @@ public class menu {
         p = llegirPosicio();      
         x = llegirElement();   
         inserirElement(p, x, myArray); 
-        imprimirArray(myArray); 
+        imprimirArray(myArray, numElem); 
     }
 
     public static int llegirPosicio() {  // declara un mètode anomenat "llegirPosicio()", que s'utilitza per llegir la posició on es vol inserir l'element
@@ -123,19 +123,19 @@ public class menu {
         inserirElementEnPosicio(p, x, array); //crida al mètode "inserirElementEnPosicio()" per inserir el nou element a la posició especificada
     }
 
-    public static void desplacarDreta(int posicio, String[] array) { //declara un mètode anomenat "desplacarDreta()", que s'utilitza per desplaçar els elements de l'array a la dreta, per fer espai per al nou element
-        for (int i = array.length - 2; i >= posicio; i--) { //utilitza un bucle for per desplaçar els elements de l'array a la
+    public static void desplacarDreta(int p, String[] array) { //declara un mètode anomenat "desplacarDreta()", que s'utilitza per desplaçar els elements de l'array a la dreta, per fer espai per al nou element
+        for (int i = array.length - 2; i >= p; i--) { //utilitza un bucle for per desplaçar els elements de l'array a la
             array[i + 1] = array[i]; //dreta, començant des del final de l'array i movent-se cap a la posició especificada. A cada iteració del bucle, l'element actual es mou a la dreta una posició
         }
     }
 
-    public static void inserirElementEnPosicio(int posicio, String element, String[] array) {  //  declara un mètode anomenat "inserirElementEnPosicio()", que s'utilitza per inserir el nou element a la posició especificada
-        array[posicio] = element; //estableix el valor del element en la posicio especificada al nou element
+    public static void inserirElementEnPosicio(int p, String x, String[] array) {  //  declara un mètode anomenat "inserirElementEnPosicio()", que s'utilitza per inserir el nou element a la posició especificada
+        array[p] = x; //estableix el valor del element en la posicio especificada al nou element
     }
 
-    public static void imprimirArray(String[] array) { // declara un mètode anomenat "imprimirArray()", que s'utilitza per imprimir els elements de l'array després de la inserció
+    public static void imprimirArray(String[] array, int numElem) { // declara un mètode anomenat "imprimirArray()", que s'utilitza per imprimir els elements de l'array després de la inserció
         System.out.println("ELEMENTS RESTANTS DE LA LLISTA:");
-        for (int i = 0; i < array.length; i++) { // utilitza un bucle for per imprimir cada element de l'array en una línia separada
+        for (int i = 0; i < numElem; i++) { // utilitza un bucle for per imprimir cada element de l'array en una línia separada
             System.out.println(array[i]);
         }
     }
