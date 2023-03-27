@@ -65,7 +65,7 @@ public class menu {
                 localitzar(myArray, numElem, x);
                 break;
             case 3:
-                recuperar(myArray, numElem, p);
+                recuperar(myArray, p);
                 break;
             case 4:
                 suprimir(myArray, numElem, p);
@@ -186,16 +186,14 @@ public class menu {
         return posicio;
     }
 
-    private static void recuperar(String[] myArray, int numElem, int p) {
+    private static void recuperar(String[] myArray, int p) {
         /*recuperar: troba l'element x que està a la posició p
         Entrada: posició p, llista
         Sortida: element x*/
 
-       
-
-        String x;
-        x = recuperar(p, myArray );
-        System.out.println(x);
+        String prova;
+        prova = recuperar(p, myArray );
+        System.out.println(prova);
     }
 
     public static String recuperar ( int p, String[] llista) {

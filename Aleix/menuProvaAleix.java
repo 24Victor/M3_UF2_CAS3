@@ -7,7 +7,7 @@ public class menuProvaAleix {
         /* Array a mig omplir */
         String[] myArray = {"dilluns", "dimarts", "","",""};
 
-        int p = 2;
+        int p = sc.nextInt();
 
         String prova;
         prova = recuperar(p, myArray );
@@ -16,12 +16,6 @@ public class menuProvaAleix {
 
     }
 
-    /**
-     * troba l'element x que està a la posició p
-    Entrada: posició p, llista
-    Sortida: element x
-
-     */
     public static String recuperar ( int p, String[] llista) {
         
         return llista[p];
