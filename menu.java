@@ -7,14 +7,12 @@ public class menu {
     public static void main(String[] args) {
         int numElem = 10;
         String myArray[] = demanarCognoms("Introdueix 10 cognoms: ");
-        int p = sc.nextInt();        
-        String x = sc.nextLine();
         int opcio;
 
         do {
             mostrarMenu();
             opcio = llegirOpcio();
-            executarOpcio(opcio, myArray, numElem, p, x);
+            executarOpcio(opcio, myArray, numElem);
         } while (opcio != 11);
 
         System.out.println("Sortint del programa...");
@@ -56,22 +54,33 @@ public class menu {
         return opcio;
     }
 
-    private static void executarOpcio(int opcio, String[] myArray, int numElem, int p, String x) {
+    private static void executarOpcio(int opcio, String[] myArray, int numElem) {
+        String x;
+        int p;
         switch (opcio) {
             case 1:
+            // Demanem al usuari un element
+            System.out.println("Introdueix un element per a afegir al array");
+            x = sc.nextLine();
+            //Demanem al usuari una posició per a afegir el element
+            System.out.println("Introdueix la posició que vols inserir");
+            p = sc.nextInt();
                 inserir(myArray, numElem, p, x);
                 break;
             case 2:
-                localitzar(myArray, numElem, x);
+            // Demanar al usuari que introueixi el element
+            System.out.println("Introdueix un element per a afegir al array");
+            x = sc.nextLine();
+                localitzar(myArray, numElem, x, p);
                 break;
             case 3:
                 recuperar(myArray, p);
                 break;
             case 4:
-                suprimir(myArray, numElem, p);
+                suprimir(myArray, numElem);
                 break;
             case 5:
-                suprimirDada(myArray, numElem, x);
+                suprimirDada(myArray, numElem);
                 break;
             case 6:
                 anul_lar(myArray, numElem);
@@ -116,21 +125,9 @@ public class menu {
         Entrada: element x, posició p, llista 
         Sortida: llista*/
 
-        imprimirArray(myArray, numElem);
-        p = llegirPosicio();      
-        x = llegirElement();   
+        imprimirArray(myArray, numElem);  
         inserirElement(p, x, myArray, numElem); 
         imprimirArrayActual(myArray, numElem); 
-    }
-
-    public static int llegirPosicio() {  // declara un mètode anomenat "llegirPosicio()", que s'utilitza per llegir la posició on es vol inserir l'element
-        System.out.println("INGRESA LA POSICIO ON VOLS INSERIR L'ELEMENT:");
-        return sc.nextInt();  //utilitza la variable Scanner prèviament definida per llegir l'entrada de l'usuari com un enter i torna aquest sencer
-    }
-
-    public static String llegirElement() {  // declara un mètode anomenat "llegirElement()", que s'utilitza per llegir l'element que voleu inserir
-        System.out.println("INGRESA L'ELEMENT QUE VOLS AFEGIR:");
-        return sc.next();  // "return" és una instrucció que indica quin valor ha de tornar el mètode "llegirElement()" quan s'anomena. En aquest cas, el mètode retorna l'entrada de l'usuari com a cadena de caràcters (String) utilitzant el mètode "next()" de l'objecte Scanner "sc".
     }
 
     public static void inserirElement(int p, String x, String[] array, int numElem) { //declara un mètode anomenat "inserirElement()", que s'utilitza per inserir l'element a la posició especificada
@@ -153,26 +150,17 @@ public class menu {
         Entrada: element x, llista
         Sortida: posició p*/
 
-       // Demanar al usuari que introueixi el element
-       x = llegirElem("Introdueix el cognom que vols consultar");
-
-       // Buscar el element i mostrar la posició si és troba
-       int posicio = localitzarElem(myArray, x, numElem);
-
+        // Buscar el cognom i mostrar la posició si és troba
+        int posicio = localitzarElem(myArray, x, numElem);
+        
+        //Si p és igual a -1 el cognom no es trobara, sino imprimira el cognom amb el element i la posició
        if (posicio == -1) {
        System.out.println("El cognom " + x + " no ha estat trobat.");
        } else {
-       System.out.println("El cognom " + x + " està en la posició " + posicio);
+       System.out.println("El cognom " + x + " està en la posició " + p);
        }
+       //imprimim el array actual
        imprimirArrayActual(myArray, numElem);
-    }
-    
-    public static String llegirElem(String missatge) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println(missatge); 
-        String cognom = sc.nextLine();
-        sc.close();
-        return cognom;
     }
     
     public static int localitzarElem(String[] myArray, String cognom, int numElem) {
@@ -191,6 +179,8 @@ public class menu {
         Entrada: posició p, llista
         Sortida: element x*/
 
+        p = llegirEnter ("Introdueix la posició que vols consultar");
+
         String prova;
         prova = recuperar(p, myArray );
         System.out.println(prova);
@@ -198,6 +188,14 @@ public class menu {
 
     public static String recuperar ( int p, String[] llista) {
         return llista[p];
+    }
+
+    /*Demanar enter al usuari i el torna */
+    public static int llegirEnter (String msg){
+        System.out.println(msg);
+        int enter = sc.nextInt();
+        return enter;
+
     }
 
     private static void suprimir(String[] myArray, int numElem, int p) {
