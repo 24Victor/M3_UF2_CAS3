@@ -57,6 +57,7 @@ public class menu {
     private static void executarOpcio(int opcio, String[] myArray, int numElem) {
         String x;
         int p;
+        int opcion;
         switch (opcio) {
             case 1:
             // Demanem al usuari un element
@@ -85,13 +86,19 @@ public class menu {
                 suprimir(myArray, numElem, p);
                 break;
             case 5:
-                suprimirDada(myArray, numElem);
+            // Demanar al usuari que introdueix el element que vol eliminar
+            System.out.println("Introdueix l'element que vols eliminar:");
+            x = sc.nextLine();
+                suprimirDada(myArray, numElem, x);
                 break;
             case 6:
                 anul_lar(myArray, numElem);
                 break;
             case 7:
-                primerDarrer(myArray, numElem);
+            // Demanar al usuari que ingrese 1 per a imprimir el primer element o 2 per a imprimir el últim
+            System.out.println("Ingresa 1 per a imprimir el primer elemento o 2 para imprimir el últim:");
+            opcion = sc.nextInt();
+                primerDarrer(myArray, numElem, opcio);
                 break;
             case 8:
                 imprimir(myArray, numElem);
@@ -100,7 +107,7 @@ public class menu {
                 ordenar(myArray);
                 break;
             case 10:
-                localitzarEnOrdenada(myArray);
+                localitzarEnOrdenada(myArray, numElem);
                 break;
             case 11:
                 // No fa res, el bucle se trenca i se surt del programa
@@ -162,7 +169,7 @@ public class menu {
        if (posicio == -1) {
        System.out.println("El cognom " + x + " no ha estat trobat.");
        } else {
-       System.out.println("El cognom " + x + " està en la posició " + p);
+       System.out.println("El cognom " + x + " està en la posició " + posicio);
        }
        //imprimim el array actual
        imprimirArrayActual(myArray, numElem);
@@ -236,13 +243,8 @@ public class menu {
         Entrada: element x, llista
         Sortida: llista*/
 
-        // Imprimir el array actual
-        System.out.println("Array actual:");
-
-
-        // Demanar al usuari que introdueix el element que vol eliminar
-        System.out.println("Introdueix l'element que vols eliminar:");
-        x = sc.nextLine();
+        System.out.println("Array Actual");
+        imprimirArray(myArray, numElem);
 
         // Buscar la posició del element
         int posicio = -1;
@@ -259,7 +261,7 @@ public class menu {
                 myArray[i] = myArray[i + 1];
             }
             myArray[numElem - 1] = "";
-            myArray = ajustarArray(myArray);
+            myArray = ajustarArray(myArray, numElem);
             System.out.println("Element eliminat.");
         } else {
             System.out.println("L'element no es troba en el array.");
@@ -267,17 +269,17 @@ public class menu {
 
         // Imprimir el array actualizat
         System.out.println("Array actualitzat:");
-
+        imprimirArrayActual(myArray, numElem);
     }
 
-    private static String[] ajustarArray(String[] myArray) {
+    private static String[] ajustarArray(String[] myArray, int numElem) {
         int cognoms = 0;
         for (String element : myArray) {
             if (element == "") {
                 cognoms++;
             }
         }
-        String[] newArray = new String[myArray.length - cognoms];
+        String[] newArray = new String[numElem - cognoms];
         int index = 0;
         for (String element : myArray) {
             if (element != "") {
@@ -300,45 +302,29 @@ public class menu {
         // Comprovem que l'array està buit imprimint-lo en pantalla
         System.out.println("L'array està buit ");
         System.out.println("Podem veure que el contingut de l'array es tot NULL: ");
-        imprimirAnul(myArray);
+        //Imprimim el array actual que està buit
+        imprimirArrayActual(myArray, numElem);
 
     }
-    private static void imprimirAnul(String[] myArray) {
-        // Fem el bucle per a imprimir el contigut de l'array
-        for (int i = 0; i < 10; i++){
-            System.out.println(myArray[i]);
-        }
-    }
 
-    private static void primerDarrer(String[] myArray, int numElem) {
+    private static void primerDarrer(String[] myArray, int numElem, int opcio) {
         /*proporciona el primer o el darrer element de la llista
         Entrada: llista, opció (primer o darrer)
         Sortida: element x*/
 
-        // Imprimir el array actual
-        System.out.println("Array actual:");
-        imprimi(myArray);
-      
-        // Demanar al usuari que ingrese 1 per a imprimir el primer element o 2 per a imprimir el últim
-        System.out.println("Ingresa 1 per a imprimir el primer elemento o 2 para imprimir el últim:");
-        int opcio = sc.nextInt();
+        // Imprimir el array ACTUAL
+        System.out.println("Array Actual:");
+        imprimirArray(myArray, numElem);
       
         // Imprimir el primer o últim element segon la opció ingresada per el usuari
         if (opcio == 1) {
             System.out.println("Primer element: " + myArray[0]);
             } else if (opcio == 2) {
-                System.out.println("Últim element: " + myArray[myArray.length - 1]);
+                System.out.println("Últim element: " + myArray[numElem - 1]);
                 } else {
                   System.out.println("Opció inválida.");
               }
-          }
-      
-        private static void imprimi(String[] myArray) {
-              for (String element : myArray) {
-                  System.out.print(element + " ");
-              }
-              System.out.println();
-            }
+        }
     
     private static void imprimir(String[] myArray, int numElem) {
         /*imprimir: imprimeix tots els elements de la llista del primer a l'últim amb la seva posició
@@ -357,14 +343,16 @@ public class menu {
     }
     
     private static void ordenar(String[] myArray) {
-        
+        /*Ordena lexicogràficament els elements de la llista.
+        Entrada: llista
+        Sortida: llista ordenada*/
         Arrays.sort(myArray);
         for (String s : myArray) {
             System.out.println(s);
         }
     }    
 
-    private static int localitzarEnOrdenada(String[] myArray){
+    private static int localitzarEnOrdenada(String[] myArray, int numElem){
 
             /*localitza la primera posició p en la que es troba un element x. (Usar l’algorisme de cerca binària)
             Entrada: llista ordenada
@@ -372,7 +360,7 @@ public class menu {
 
             //Declarem 3 variables, el baux(minim del array), alt(el array complet -1) i mitg
             int baix = 0;
-            int alt = myArray.length -1;
+            int alt = numElem -1;
             int mitg;
 
             //Demanem al usuari que introdueix un element per a buscar.
