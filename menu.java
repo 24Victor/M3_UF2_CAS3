@@ -71,13 +71,18 @@ public class menu {
             // Demanar al usuari que introueixi el element
             System.out.println("Introdueix un element per a afegir al array");
             x = sc.nextLine();
-                localitzar(myArray, numElem, x, p);
+                localitzar(myArray, numElem, x);
                 break;
             case 3:
+            System.out.println("Introdueix la posició que vols consultar");
+            p = sc.nextInt();
                 recuperar(myArray, p);
                 break;
             case 4:
-                suprimir(myArray, numElem);
+            // Demanem a l'usuari quina posició vol eliminar */
+            System.out.println("Ingresa la posició de l'element que vols eliminar: ");   
+            p = sc.nextInt();     
+                suprimir(myArray, numElem, p);
                 break;
             case 5:
                 suprimirDada(myArray, numElem);
@@ -179,23 +184,16 @@ public class menu {
         Entrada: posició p, llista
         Sortida: element x*/
 
-        p = llegirEnter ("Introdueix la posició que vols consultar");
-
-        String prova;
-        prova = recuperar(p, myArray );
-        System.out.println(prova);
+        //Creem una variable string element
+        String element;
+        //Fem que element sigue assignat per la funcio recuperar, i imprimir el element.
+        element = recuperar(p, myArray);
+        System.out.println(element);
     }
 
     public static String recuperar ( int p, String[] llista) {
+        //retornem la llista de l'array amb la posició del element.
         return llista[p];
-    }
-
-    /*Demanar enter al usuari i el torna */
-    public static int llegirEnter (String msg){
-        System.out.println(msg);
-        int enter = sc.nextInt();
-        return enter;
-
     }
 
     private static void suprimir(String[] myArray, int numElem, int p) {
@@ -207,10 +205,6 @@ public class menu {
             System.out.println("Ingresa l'element " + (i + 1) + ": ");   //  Demanar al usuari que ingrese l'element
             myArray[i] = sc.next();     //  Llegeix l'entrada del usuari i l'asigna al elemento corresponent de l'Array
         }
-
-        /* Demanem a l'usuari quina posició vol eliminar */
-        System.out.println("Ingresa la posició de l'element que vols eliminar: ");   //  Demanem a l'usuari quina posició vol eliminar
-        p = sc.nextInt();      // Llegeix l'entrada del usuari i l'asigna a la variable "p"
 
         /* Verifiquem que la posició ingresada sigui valida */
         while (p < 1 || p > numElem) {    // Bucle que s'executa mentres la posicio ingresada no sigue valida (es a dir, menor que 1 o major que numElem)
@@ -233,10 +227,8 @@ public class menu {
         /* Restem una posició a l'array */
         numElem--;
 
-        System.out.println("Elements restants de la llista: ");
-        for (int i = 0; i < numElem; i++) {
-            System.out.println(myArray[i]);
-        }
+       //imprimim el array actual per a oberservar els elements restants de la llista
+       imprimirArrayActual(myArray, numElem);
     }
 
     private static void suprimirDada(String[] myArray, int numElem, String x) {
