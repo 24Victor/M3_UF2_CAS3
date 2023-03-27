@@ -225,16 +225,12 @@ public class menu {
 
          // Imprimir el array actual
          System.out.println("Array actual:");
-         imprimir(myArray);
- 
-         // Demanar al usuari que introdueix el element que vol eliminar
-         System.out.println("Introdueix l'element que vols eliminar:");
-         String element = sc.nextLine();
+         imprimi(myArray);
  
          // Buscar la posició del element
          int posicio = -1;
-         for (int i = 0; i < myArray.length; i++) {
-             if (myArray[i].equals(element)) {
+         for (int i = 0; i < numElem; i++) {
+             if (myArray[i].equals(x)) {
                  posicio = i;
                  break;
              }
@@ -242,10 +238,10 @@ public class menu {
  
          // Si el element se troba en el array eliminarlo
          if (posicio != -1) {
-             for (int i = posicio; i < myArray.length - 1; i++) {
+             for (int i = posicio; i < numElem - 1; i++) {
                  myArray[i] = myArray[i + 1];
              }
-             myArray[myArray.length - 1] = null;
+             myArray[myArray.length - 1] = "";
              myArray = ajustarArray(myArray);
              System.out.println("Element eliminat.");
          } else {
@@ -254,11 +250,11 @@ public class menu {
  
          // Imprimir el array actualizat
          System.out.println("Array actualitzat:");
-         imprimir(myArray);
+         imprimi(myArray);
      }
  
   
-      private static void imprimir(String[] myArray) {
+      private static void imprimi(String[] myArray) {
         for (String element : myArray) {
             System.out.print(element + " ");
         }
