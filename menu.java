@@ -191,23 +191,15 @@ public class menu {
         Entrada: posició p, llista
         Sortida: element x*/
 
-        p = llegirEnter ("Introdueix la posició que vols consultar");
+       
 
-        String prova;
-        prova = recuperar(p, myArray );
-        System.out.println(prova);
+        String x;
+        x = recuperar(p, myArray );
+        System.out.println(x);
     }
 
     public static String recuperar ( int p, String[] llista) {
         return llista[p];
-    }
-
-    /*Demanar enter al usuari i el torna */
-    public static int llegirEnter (String msg){
-        System.out.println(msg);
-        int enter = sc.nextInt();
-        return enter;
-
     }
 
     private static void suprimir(String[] myArray, int numElem, int p) {

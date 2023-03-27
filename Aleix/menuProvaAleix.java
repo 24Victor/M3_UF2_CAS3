@@ -7,14 +7,10 @@ public class menuProvaAleix {
         /* Array a mig omplir */
         String[] myArray = {"dilluns", "dimarts", "","",""};
 
-        /*Scanner sc1 = new Scanner(System.in);
-        System.out.print("escollir Llista:");
-        String llista = sc.nextLine(); */
-        int posicio;
-        posicio = llegirEnter ("Introdueix la posició que vols consultar");
+        int p = 2;
 
         String prova;
-        prova = recuperar(posicio, myArray );
+        prova = recuperar(p, myArray );
         System.out.println(prova);
 
 
@@ -29,14 +25,6 @@ public class menuProvaAleix {
     public static String recuperar ( int p, String[] llista) {
         
         return llista[p];
-    }
-
-    /*Demanar enter al usuari i el torna */
-    public static int llegirEnter (String msg){
-        System.out.println(msg);
-        int enter = sc.nextInt();
-        return enter;
-
     }
 
 }
