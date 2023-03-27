@@ -1,4 +1,7 @@
 import java.util.Scanner;
+
+import javax.lang.model.element.Element;
+
 import java.util.Arrays;
 
 public class menu {
@@ -70,7 +73,7 @@ public class menu {
                 break;
             case 2:
             // Demanar al usuari que introueixi el element
-            System.out.println("Introdueix un element per a afegir al array");
+            System.out.println("Introdueix un element per a localitzar al array");
             x = sc.nextLine();
                 localitzar(myArray, numElem, x);
                 break;
@@ -118,14 +121,14 @@ public class menu {
     }
 
     public static void imprimirArray(String[] myArray, int numElem) {
-        System.out.print("ELEMENTS ANTICS DE LA LLISTA:");
+        System.out.println("ELEMENTS ANTICS DE LA LLISTA:");
         for (int i = 0; i < numElem; i++) {
             System.out.println(myArray[i]);
         }
     }
 
     public static void imprimirArrayActual(String[] myArray, int numElem) {
-        System.out.print("ELEMENTS ACTUALS DE LA LLISTA:");
+        System.out.println("ELEMENTS ACTUALS DE LA LLISTA:  ");
         for (int i = 0; i < numElem; i++) {
             System.out.println(myArray[i]);
         }
@@ -171,8 +174,6 @@ public class menu {
        } else {
        System.out.println("El cognom " + x + " està en la posició " + posicio);
        }
-       //imprimim el array actual
-       imprimirArrayActual(myArray, numElem);
     }
     
     public static int localitzarElem(String[] myArray, String cognom, int numElem) {
@@ -191,51 +192,30 @@ public class menu {
         Entrada: posició p, llista
         Sortida: element x*/
 
-        //Creem una variable string element
-        String element;
-        //Fem que element sigue assignat per la funcio recuperar, i imprimir el element.
-        element = recuperar(p, myArray);
-        System.out.println(element);
+        // Bucle for per a trobar la posicio.
+        for (int i = 0; i <= p; i++) { 
+            if(i == p){
+            System.out.println("El element de la posicio és: " + myArray[i]);                                                                                                        
+            }
+        }
     }
-
-    public static String recuperar ( int p, String[] llista) {
-        //retornem la llista de l'array amb la posició del element.
-        return llista[p];
-    }
+    
 
     private static void suprimir(String[] myArray, int numElem, int p) {
         /* suprimir: elimina de la llista l'element de la posició p
             Entrada: posició p, llista
             Sortida: llista*/
-                
-        for (int i = 0; i < numElem; i++) {         //  Bucle per a recorrer cada element de l'Array i demanar al usuari que lo fique
-            System.out.println("Ingresa l'element " + (i + 1) + ": ");   //  Demanar al usuari que ingrese l'element
-            myArray[i] = sc.next();     //  Llegeix l'entrada del usuari i l'asigna al elemento corresponent de l'Array
-        }
-
-        /* Verifiquem que la posició ingresada sigui valida */
-        while (p < 1 || p > numElem) {    // Bucle que s'executa mentres la posicio ingresada no sigue valida (es a dir, menor que 1 o major que numElem)
-            System.out.println("Error, torna a introduir un numero del 1 al 10.");
-            p = sc.nextInt();    // Llegeix l'entrada del usuari novament i l'asigna a la variable "p"
-        }
-        
-        suprimi(myArray, numElem, p); 
-    }
-
-    public static void suprimi(String[] myArray, int numElem, int p){    
-        /*elimina de la llista l'element de la posició p
-        Entrada: posició p, llista
-        Sortida: llista*/  
-        
+ 
         for (int i = p - 1; i < numElem - 1; i++) {      
             myArray[i] = myArray[i + 1];        
         }
-
+    
         /* Restem una posició a l'array */
         numElem--;
 
-       //imprimim el array actual per a oberservar els elements restants de la llista
-       imprimirArrayActual(myArray, numElem);
+    
+        //imprimim el array actual per a oberservar els elements restants de la llista
+        imprimirArrayActual(myArray, numElem);
     }
 
     private static void suprimirDada(String[] myArray, int numElem, String x) {
@@ -243,46 +223,59 @@ public class menu {
         Entrada: element x, llista
         Sortida: llista*/
 
-        System.out.println("Array Actual");
-        imprimirArray(myArray, numElem);
-
-        // Buscar la posició del element
-        int posicio = -1;
-        for (int i = 0; i < numElem; i++) {
-            if (myArray[i].equals(x)) {
-                posicio = i;
-                break;
-            }
+         // Imprimir el array actual
+         System.out.println("Array actual:");
+         imprimir(myArray);
+ 
+         // Demanar al usuari que introdueix el element que vol eliminar
+         System.out.println("Introdueix l'element que vols eliminar:");
+         String element = sc.nextLine();
+ 
+         // Buscar la posició del element
+         int posicio = -1;
+         for (int i = 0; i < myArray.length; i++) {
+             if (myArray[i].equals(element)) {
+                 posicio = i;
+                 break;
+             }
+         }
+ 
+         // Si el element se troba en el array eliminarlo
+         if (posicio != -1) {
+             for (int i = posicio; i < myArray.length - 1; i++) {
+                 myArray[i] = myArray[i + 1];
+             }
+             myArray[myArray.length - 1] = null;
+             myArray = ajustarArray(myArray);
+             System.out.println("Element eliminat.");
+         } else {
+             System.out.println("L'element no es troba en el array.");
+         }
+ 
+         // Imprimir el array actualizat
+         System.out.println("Array actualitzat:");
+         imprimir(myArray);
+     }
+ 
+  
+      private static void imprimir(String[] myArray) {
+        for (String element : myArray) {
+            System.out.print(element + " ");
         }
-
-        // Si el element se troba en el array eliminarlo
-        if (posicio != -1) {
-            for (int i = posicio; i < numElem - 1; i++) {
-                myArray[i] = myArray[i + 1];
-            }
-            myArray[numElem - 1] = "";
-            myArray = ajustarArray(myArray, numElem);
-            System.out.println("Element eliminat.");
-        } else {
-            System.out.println("L'element no es troba en el array.");
-        }
-
-        // Imprimir el array actualizat
-        System.out.println("Array actualitzat:");
-        imprimirArrayActual(myArray, numElem);
+        System.out.println();
     }
 
-    private static String[] ajustarArray(String[] myArray, int numElem) {
+    private static String[] ajustarArray(String[] myArray) {
         int cognoms = 0;
         for (String element : myArray) {
-            if (element == "") {
+            if (element == null) {
                 cognoms++;
             }
         }
-        String[] newArray = new String[numElem - cognoms];
+        String[] newArray = new String[myArray.length - cognoms];
         int index = 0;
         for (String element : myArray) {
-            if (element != "") {
+            if (element != null) {
                 newArray[index] = element;
                 index++;
             }
@@ -303,7 +296,9 @@ public class menu {
         System.out.println("L'array està buit ");
         System.out.println("Podem veure que el contingut de l'array es tot NULL: ");
         //Imprimim el array actual que està buit
-        imprimirArrayActual(myArray, numElem);
+        System.out.println("L'array està buit ");
+        for (int i = 0; i < 10; i++);{
+        }
 
     }
 
